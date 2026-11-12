@@ -29,16 +29,16 @@
       window.scrollTo({ top: 0, behavior: 'instant' });
     }
     document.body.classList.remove('scrolled-down');
+    setMenuOpen(true);
 
     if (feedback) {
-      setMenuOpen(true);
       clearTimeout(feedbackTimer);
       feedback.textContent = 'Fein!';
       feedback.classList.add('visible');
       feedbackTimer = setTimeout(() => {
         feedback.classList.remove('visible');
         feedback.textContent = '';
-      }, 1800);
+      }, 2400);
     }
   }
 

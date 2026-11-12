@@ -65,25 +65,37 @@
 .gib-pfote__feedback {
   position: fixed;
   z-index: 70;
-  top: 22px;
-  left: 50%;
+  top: 38%;
+  left: calc(50% - 120px);
   margin: 0;
-  padding: 8px 20px;
-  border: 1px solid #ffcf5f;
+  padding: .31em .65em .4em;
+  border: 2px solid #fff0c7;
   border-radius: 999px;
-  background: #181824;
-  color: #ffcf5f;
+  background: linear-gradient(135deg, #ffe39a, #ffb347);
+  color: #211308;
   font-family: Oswald, system-ui, sans-serif;
-  font-size: 20px;
-  box-shadow: 0 8px 30px #0009;
+  font-size: clamp(3rem, 6vw, 5rem);
+  font-weight: 600;
+  line-height: 1;
+  white-space: nowrap;
+  box-shadow: 0 12px 40px #000b, 0 0 32px #ffb34766;
   opacity: 0;
-  transform: translate(-50%, -6px);
+  transform: translate(-50%, -50%) scale(.9);
   pointer-events: none;
 }
 
 .gib-pfote__feedback.visible {
   opacity: 1;
-  transform: translate(-50%, 0);
+  transform: translate(-50%, -50%) scale(1);
+}
+
+@media (max-width: 600px) {
+  .gib-pfote__feedback {
+    top: 35px;
+    left: calc(100% - 120px);
+    padding: 5px 16px 7px;
+    font-size: 38px;
+  }
 }
 
 @media (prefers-reduced-motion: no-preference) {
