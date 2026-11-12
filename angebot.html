@@ -192,16 +192,6 @@ ul {
   font-weight:bold;
   box-shadow:0 18px 38px rgba(0,0,0,0.85);
 }
-.btn-paw {
-  display:inline-flex;
-  align-items:center;
-  gap:7px;
-}
-.btn-paw img {
-  width:22px;
-  height:auto;
-  flex:none;
-}
 .small-hint {
   font-size:11px;
   color:#a0a0b5;
@@ -311,8 +301,9 @@ footer {
   .header-inner{padding-bottom:12px;}
 }
 </style>
+<link rel="stylesheet" href="gib-pfote.css">
 </head>
-<body>
+<body id="seitenanfang">
 <header>
   <div class="header-inner">
     <div class="burger" id="burger">
@@ -365,10 +356,7 @@ footer {
 <div class="card highlight">
   <h3>🐾 Bereit für DoggyStyle?</h3>
   <p>Wenn du dir vorstellen kannst, deinen Hund hier im Hofalltag mitzuleben, melde dich bei uns.</p>
-  <a href="kontakt.html" class="btn btn-paw">
-    <img src="images/Pfote.PNG" alt="" width="878" height="796">
-    Jetzt anfragen
-  </a>
+  <a href="kontakt.html" class="btn">Jetzt anfragen</a>
 </div>
 
 <h2>Alltag & Unterkunft</h2>
@@ -379,6 +367,18 @@ footer {
       <img src="images/embedded_5.jpg" alt="Hundebild" class="reveal">
       <img src="images/embedded_7.jpg" alt="Hundebild" class="reveal">
   </div>
+</div>
+
+<div class="gib-pfote">
+  <a class="gib-pfote__link" href="#seitenanfang" aria-label="Gib Pfote! Zurück nach oben">
+    <span class="gib-pfote__row">
+      <span class="gib-pfote__hint">nach oben hier ↑</span>
+      <span class="gib-pfote__circle">
+        <img src="images/Pfote.PNG" alt="" width="878" height="796">
+      </span>
+    </span>
+    <span class="gib-pfote__caption">Gib Pfote❗ 😉</span>
+  </a>
 </div>
 
 </div>

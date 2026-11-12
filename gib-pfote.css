@@ -1,0 +1,63 @@
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+.gib-pfote {
+  display: flex;
+  justify-content: center;
+  margin-top: 26px;
+  text-align: center;
+}
+
+.gib-pfote__link {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+  color: #d0d0dd;
+  text-decoration: none;
+}
+
+.gib-pfote__row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.gib-pfote__hint {
+  font-size: 13px;
+  letter-spacing: 0.06em;
+}
+
+.gib-pfote__circle {
+  display: grid;
+  place-items: center;
+  width: 86px;
+  height: 86px;
+  flex: none;
+  border: 2px solid #d0d0d7;
+  border-radius: 50%;
+  background: radial-gradient(circle at 36% 30%, #fff 0%, #eeeef1 40%, #aaaab2 76%, #797982 100%);
+  box-shadow: 0 0 0 2px #ffffff22, 0 12px 30px #0009;
+}
+
+.gib-pfote__circle img {
+  display: block;
+  width: 58px;
+  height: auto;
+}
+
+.gib-pfote__caption {
+  color: #ffcf5f;
+  font-family: Oswald, system-ui, sans-serif;
+  font-size: 16px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.gib-pfote__link:focus-visible .gib-pfote__circle {
+  outline: 3px solid #ffcf5f;
+  outline-offset: 4px;
+}

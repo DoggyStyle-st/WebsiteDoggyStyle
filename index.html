@@ -192,16 +192,6 @@ ul {
   font-weight:bold;
   box-shadow:0 18px 38px rgba(0,0,0,0.85);
 }
-.btn-paw {
-  display:inline-flex;
-  align-items:center;
-  gap:7px;
-}
-.btn-paw img {
-  width:22px;
-  height:auto;
-  flex:none;
-}
 .small-hint {
   font-size:11px;
   color:#a0a0b5;
@@ -365,8 +355,9 @@ footer {
   .header-inner{padding-bottom:12px;}
 }
 </style>
+<link rel="stylesheet" href="gib-pfote.css">
 </head>
-<body>
+<body id="seitenanfang">
 <header>
   <div class="header-inner">
     <div class="burger" id="burger">
@@ -401,6 +392,7 @@ footer {
   Der Name sorgt oft für ein Grinsen – und ja, das darf er auch. 😄 Aber für uns bedeutet
   „DoggyStyle“ vor allem eins: Hier verbringt dein Hund seine Zeit wirklich hundgerecht – also im <strong>Doggy Style</strong>.</p>
   <p>Mit Hofleben, Struktur, klaren Regeln, Ruhephasen und genug Platz zum Hundsein.</p>
+  <p>Unser kleiner Frechdachs Hooch ist neu am Hof und bringt uns immer wieder zum Lachen. Taps, unser Lehrer, bleibt Teil von Doggy Style. <a href="ueber-uns.html" style="color:#ffcf5f;">Lerne unser Hof-Rudel kennen.</a></p>
 </div>
 
 
@@ -410,8 +402,20 @@ footer {
 
   <div class="gallery-grid">
     <figure>
+      <img src="images/hooch-im-gras.jpg" alt="Hooch liegt im Gras und schaut in die Kamera" width="1149" height="1662" loading="lazy" decoding="async">
+      <figcaption>Hooch, unser kleiner Frechdachs.</figcaption>
+    </figure>
+    <figure>
+      <img src="images/hunde-im-hundebett.jpg" alt="Zwei Hunde teilen sich ein Hundebett" width="1152" height="1536" loading="lazy" decoding="async">
+      <figcaption>Zusammen ist es am gemütlichsten.</figcaption>
+    </figure>
+    <figure>
+      <img src="images/hunde-mit-hofblick.jpg" alt="Zwei Hunde blicken über die Wiesen" width="1152" height="1536" loading="lazy" decoding="async" style="object-position:center 65%;">
+      <figcaption>Gemeinsam den Blick über die Wiesen genießen.</figcaption>
+    </figure>
+    <figure>
       <img src="images/taps_huhn_napf.jpg" alt="Schwarzer Hund Taps neben einem Huhn am Wassernapf">
-      <figcaption>Taps teilt sich den Platz am Napf mit unserem Huhn.</figcaption>
+      <figcaption>Erinnerung an Taps am Wassernapf mit unserem Huhn.</figcaption>
     </figure>
 <figure>
     <img src="images/verspielt_hund.jpg" alt="Verspielter Hund im Stall">
@@ -431,7 +435,7 @@ footer {
 </figure>
     <figure>
       <img src="images/taps_portrait_garten.jpg" alt="Taps sitzt lachend auf der Wiese vor dem Haus">
-      <figcaption>Taps – unser gut gelaunter Senior mit Hofblick.</figcaption>
+      <figcaption>Taps, unser Lehrer, mit Blick über den Hof.</figcaption>
     </figure>
     <figure>
       <img src="images/dicke_gaehn.jpg" alt="Cane Corso Hündin Dicke gähnt entspannt vor dem Haus">
@@ -475,15 +479,12 @@ footer {
 <div class="card highlight">
   <h3>🐾 Bereit für DoggyStyle?</h3>
   <p>Wenn du glaubst, dass dein Hund zu uns passt – und wir zu euch –, schreib uns kurz.</p>
-  <a href="kontakt.html" class="btn btn-paw">
-    <img src="images/Pfote.PNG" alt="" width="878" height="796">
-    Jetzt anfragen
-  </a>
+  <a href="kontakt.html" class="btn">Jetzt anfragen</a>
   </div>
 
 <h2>Einblicke in unseren Alltag</h2>
 <div class="card">
-  <p><strong>Keine klassische Zwingerhaltung:</strong><br> Eure Hunde leben bei uns im Haus und auf dem Hof mit engem Familienanschluss – die Bilder zeigen unseren echten Alltag mit Dicke, Taps &amp; Co.</p>
+  <p><strong>Keine klassische Zwingerhaltung:</strong><br> Eure Hunde leben bei uns im Haus und auf dem Hof mit engem Familienanschluss. Die Bilder zeigen unser Leben mit den Hunden auf dem Wauernhof.</p>
   <div class="gallery">
       <img src="images/embedded_2.jpg" alt="Hundebild" class="reveal">
       <img src="images/embedded_3.jpg" alt="Hundebild" class="reveal">
@@ -498,6 +499,18 @@ footer {
     <img src="images/dicke_taps.jpg" alt="Unsere Hunde und Alpakas – ein starkes Team">
 </div>
   </div>
+</div>
+
+<div class="gib-pfote">
+  <a class="gib-pfote__link" href="#seitenanfang" aria-label="Gib Pfote! Zurück nach oben">
+    <span class="gib-pfote__row">
+      <span class="gib-pfote__hint">nach oben hier ↑</span>
+      <span class="gib-pfote__circle">
+        <img src="images/Pfote.PNG" alt="" width="878" height="796">
+      </span>
+    </span>
+    <span class="gib-pfote__caption">Gib Pfote❗ 😉</span>
+  </a>
 </div>
 
 </div>

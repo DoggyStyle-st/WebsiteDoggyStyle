@@ -7,16 +7,15 @@
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&family=Oswald:wght@400;600&display=swap');
 
-*{ box-sizing:border-box; }
+* { box-sizing:border-box; }
 
-body{
+body {
   background:#050509;
   color:#f2f2f2;
   font-family:'Montserrat',system-ui,-apple-system,BlinkMacSystemFont,sans-serif;
   margin:0;
 }
-
-header{
+header {
   position:sticky;
   top:0;
   z-index:40;
@@ -25,12 +24,13 @@ header{
   border-bottom:1px solid rgba(255,255,255,0.08);
   transition:transform .6s ease-in-out, opacity .6s ease-in-out;
 }
-body.scrolled-down header{
+
+body.scrolled-down header {
   transform:translateY(-120%);
   opacity:0;
 }
 
-.header-inner{
+.header-inner {
   max-width:1120px;
   margin:0 auto;
   padding:12px 20px 18px;
@@ -40,7 +40,7 @@ body.scrolled-down header{
   gap:8px;
   position:relative;
 }
-.header-inner::before{
+.header-inner::before {
   content:'';
   position:absolute;
   top:38%;
@@ -53,8 +53,7 @@ body.scrolled-down header{
   opacity:0.9;
   z-index:-2;
 }
-
-.logo-shell{
+.logo-shell {
   padding:10px;
   border-radius:30px;
   background:linear-gradient(135deg,rgba(255,122,47,0.25),rgba(10,6,18,0.9));
@@ -67,15 +66,18 @@ body.scrolled-down header{
   transform-origin:center;
   transition:transform .35s ease-out, box-shadow .35s ease-out, background .35s ease-out, border-color .35s ease-out;
 }
-.header-inner:hover .logo-shell{
+.header-inner:hover .logo-shell {
   transform:translateY(-2px) scale(1.01);
   box-shadow:0 32px 80px rgba(0,0,0,1);
   background:linear-gradient(135deg,rgba(255,122,47,0.35),rgba(10,6,18,0.95));
   border-color:rgba(255,207,95,1);
 }
-.logo-shell img{ width:100%; display:block; border-radius:22px; }
-
-.brand-title{
+.logo-shell img {
+  width:100%;
+  display:block;
+  border-radius:22px;
+}
+.brand-title {
   font-family:'Oswald',system-ui,sans-serif;
   font-size:15px;
   letter-spacing:0.22em;
@@ -83,26 +85,27 @@ body.scrolled-down header{
   font-weight:600;
   margin-top:6px;
 }
-.brand-sub{
+.brand-sub {
   font-size:11px;
   color:#ffcf5f;
   letter-spacing:0.2em;
   text-transform:uppercase;
 }
-
-.logo-shell,.brand-title,.brand-sub{
+.logo-shell,
+.brand-title,
+.brand-sub {
   transition:transform .45s ease-out, opacity .45s ease-out;
   transition-delay:.12s;
 }
+
 body.scrolled-down .logo-shell,
 body.scrolled-down .brand-title,
-body.scrolled-down .brand-sub{
+body.scrolled-down .brand-sub {
   transform:translateY(-26px);
   opacity:0;
 }
 
-.burger{
-  z-index:9999;
+.burger{z-index:9999;position:absolute;right:22px;top:18px;
   position:absolute;
   right:22px;
   top:18px;
@@ -113,41 +116,53 @@ body.scrolled-down .brand-sub{
   flex-direction:column;
   justify-content:space-between;
 }
-.burger span{
+.burger span {
   height:3px;
   border-radius:999px;
   background:#f2f2f2;
   transition:transform .2s ease-out, opacity .2s ease-out;
 }
-.burger.open span:nth-child(1){ transform:translateY(9px) rotate(45deg); }
-.burger.open span:nth-child(2){ opacity:0; }
-.burger.open span:nth-child(3){ transform:translateY(-9px) rotate(-45deg); }
-
-.wrapper{
+.burger.open span:nth-child(1) {
+  transform:translateY(9px) rotate(45deg);
+}
+.burger.open span:nth-child(2) {
+  opacity:0;
+}
+.burger.open span:nth-child(3) {
+  transform:translateY(-9px) rotate(-45deg);
+}
+.wrapper {
   max-width:1120px;
   margin:0 auto;
   padding:26px 20px 60px;
 }
-
-h1,h2,h3{ font-family:'Oswald',system-ui,sans-serif; }
-h1{
+h1,h2,h3 {
+  font-family:'Oswald',system-ui,sans-serif;
+}
+h1 {
   font-size:30px;
   margin:0 0 10px;
   letter-spacing:0.06em;
   text-transform:uppercase;
 }
-h2{
+h2 {
   color:#ff7a2f;
   text-transform:uppercase;
   letter-spacing:0.16em;
   font-size:16px;
   margin:30px 0 10px;
 }
-h3{ color:#f2f2f2; margin-top:18px; margin-bottom:6px; }
-
-p{ margin:6px 0; color:#d0d0dd; line-height:1.5; }
-
-.card{
+h3 {
+  color:#f2f2f2;
+  margin-top:18px;
+  margin-bottom:6px;
+}
+p {
+  margin:6px 0;
+  color:#d0d0dd;
+  line-height:1.5;
+}
+.card {
   background:#181824;
   border-radius:12px;
   border:1px solid #27273a;
@@ -155,13 +170,60 @@ p{ margin:6px 0; color:#d0d0dd; line-height:1.5; }
   margin:10px 0 18px;
   box-shadow:0 16px 36px rgba(0,0,0,0.8);
 }
-.card.highlight{
+.card.highlight {
   border-color:#ff7a2f;
   box-shadow:0 0 32px rgba(255,122,47,0.35);
 }
-
-/* Side Menu */
-.side-menu-overlay{
+ul {
+  margin:6px 0 6px 20px;
+  color:#c8c8d5;
+}
+.btn {
+  display:inline-block;
+  margin-top:10px;
+  padding:9px 18px;
+  border-radius:999px;
+  background:radial-gradient(circle at 0% 0%,#ffcf5f,#ff7a2f 50%,#b03a10 100%);
+  color:#140a03;
+  font-size:12px;
+  text-transform:uppercase;
+  letter-spacing:0.16em;
+  text-decoration:none;
+  font-weight:bold;
+  box-shadow:0 18px 38px rgba(0,0,0,0.85);
+}
+.small-hint {
+  font-size:11px;
+  color:#a0a0b5;
+  margin:2px 0 6px;
+}
+footer {
+  border-top:1px solid rgba(255,255,255,0.08);
+  padding:16px 20px 24px;
+  font-size:11px;
+  color:#a0a0b5;
+  background:radial-gradient(circle at bottom,#181824 0,#050509 52%,#000 100%);
+}
+.footer-inner {
+  max-width:1120px;
+  margin:0 auto;
+  display:flex;
+  justify-content:space-between;
+  gap:16px;
+  flex-wrap:wrap;
+}
+.footer-links {
+  display:flex;
+  gap:12px;
+  flex-wrap:wrap;
+}
+.footer-links a {
+  color:#a0a0b5;
+  text-decoration:none;
+  text-transform:uppercase;
+  letter-spacing:0.14em;
+}
+.side-menu-overlay {
   position:fixed;
   inset:0;
   background:rgba(0,0,0,0.7);
@@ -171,9 +233,11 @@ p{ margin:6px 0; color:#d0d0dd; line-height:1.5; }
   transition:opacity .2s ease-out, visibility .2s ease-out;
   z-index:60;
 }
-.side-menu-overlay.open{ opacity:1; visibility:visible; }
-
-.side-menu{
+.side-menu-overlay.open {
+  opacity:1;
+  visibility:visible;
+}
+.side-menu {
   position:fixed;
   top:0;
   right:-260px;
@@ -189,8 +253,10 @@ p{ margin:6px 0; color:#d0d0dd; line-height:1.5; }
   z-index:61;
   transition:right .2s ease-out;
 }
-.side-menu.open{ right:0; }
-.side-menu a{
+.side-menu.open {
+  right:0;
+}
+.side-menu a {
   color:#d0d0dd;
   text-decoration:none;
   font-size:13px;
@@ -199,293 +265,237 @@ p{ margin:6px 0; color:#d0d0dd; line-height:1.5; }
   padding:6px 0;
   border-bottom:1px solid rgba(255,255,255,0.06);
 }
-.side-menu a.active{ color:#ffffff; }
-.side-menu a:last-child{ border-bottom:none; }
-
-/* Reveal */
-.reveal{
-  opacity:0;
-  transform:translateY(18px);
-  transition:opacity .55s ease-out, transform .55s ease-out;
+.side-menu a.active {
+  color:#ffffff;
 }
-.reveal.reveal-visible{
+.side-menu a:last-child {
+  border-bottom:none;
+}
+.gallery {
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+  gap:10px;
+  margin-top:10px;
+}
+.gallery img {
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  border-radius:10px;
+  border:1px solid #27273a;
+  box-shadow:0 8px 22px rgba(0,0,0,0.75);
+}
+
+/* Scroll-Reveal Animation */
+.reveal {
+  opacity:0;
+  transform:translateY(24px);
+  transition:opacity .6s ease-out, transform .6s ease-out;
+}
+.reveal.reveal-visible {
   opacity:1;
   transform:translateY(0);
 }
 
+@media (max-width:780px){
+  .header-inner{padding-bottom:12px;}
+}
+
 /* Abenteuer-Video im Handy-Look */
-.adventure-card{ margin-top:18px; }
-
-.adventure-tagline{
-  font-weight:600;
-  font-size:14px;
-  color:#ffcf5f;
-  margin:0 0 4px;
-}
-.adventure-sub{
-  font-size:13px;
-  color:#c8c8d5;
-  margin:0;
+.adventure-card {
+  margin-top: 18px;
 }
 
-.adventure-video-wrap{
-  display:flex;
-  justify-content:center;
-  margin:12px 0 8px;
+.adventure-intro {
+  margin-bottom: 14px;
 }
 
-.phone-frame{
-  width:min(320px, 82vw);
-  aspect-ratio:9 / 16;
-  border-radius:28px;
-  padding:8px;
-  background:radial-gradient(circle at top, #2b1b16 0, #050509 65%);
-  border:2px solid rgba(255,207,95,0.8);
-  box-shadow:0 18px 40px rgba(0,0,0,0.9);
-  position:relative;
-  display:flex;
-  flex-direction:column;
-  justify-content:center;
+.adventure-tagline {
+  font-weight: 600;
+  font-size: 14px;
+  color: #ffcf5f;
+  margin-bottom: 4px;
 }
-.phone-notch{
-  position:absolute;
-  top:6px;
-  left:50%;
-  transform:translateX(-50%);
-  width:34%;
-  height:9px;
-  border-radius:0 0 10px 10px;
-  background:#050509;
+
+.adventure-sub {
+  font-size: 13px;
+  color: #c8c8d5;
+  margin: 0;
 }
-.phone-video-inner{
-  flex:1;
-  border-radius:20px;
-  overflow:hidden;
+
+.adventure-video-wrap {
+  display: flex;
+  justify-content: center;
+  margin: 12px 0 8px;
+}
+
+.phone-frame {
+  width: min(320px, 82vw);
+  aspect-ratio: 9 / 16;
+  border-radius: 28px;
+  padding: 8px;
+  background: radial-gradient(circle at top, #2b1b16 0, #050509 65%);
+  border: 2px solid rgba(255,207,95,0.8);
+  box-shadow: 0 18px 40px rgba(0,0,0,0.9);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.phone-notch {
+  position: absolute;
+  top: 6px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 34%;
+  height: 9px;
+  border-radius: 0 0 10px 10px;
+  background: #050509;
+}
+
+.phone-video-inner {
+  flex: 1;
+  border-radius: 20px;
+  overflow: hidden;
   background:#000;
   display:flex;
   align-items:center;
   justify-content:center;
 }
-.phone-video-inner video{
-  width:100%;
-  height:100%;
-  display:block;
-  object-fit:cover;
+
+.phone-video-inner video {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
 }
 
-.adventure-note{
-  font-size:11px;
-  color:#a0a0b5;
-  margin-top:8px;
+.adventure-note {
+  font-size: 11px;
+  color: #a0a0b5;
+  margin-top: 8px;
 }
 
-/* Pfotenbereich (unten) */
-.paw-section{
-  margin-top:34px;
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  text-align:center;
-}
-.paw-row{
-  display:flex;
-  align-items:center;
-  gap:12px;
-}
-.paw-hint{
-  font-family:'Montserrat',system-ui,sans-serif;
-  font-size:13px;
-  color:#c8c8d5;
-  letter-spacing:0.06em;
-}
-.paw-button{
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-  width:84px;
-  height:84px;
-  border-radius:50%;
-  border:1px solid rgba(255,255,255,0.60);
-  cursor:pointer;
-  background:
-    url('images/pfote_button.png') center/64% no-repeat,
-    radial-gradient(circle at 30% 18%,
-      rgba(255,255,255,0.98),
-      rgba(240,240,243,0.98) 34%,
-      rgba(210,210,216,1) 72%,
-      rgba(88,88,96,1) 100%);
-  transform:translateY(-6px);
-  box-shadow:
-    0 34px 60px rgba(0,0,0,1),
-    0 0 0 2px rgba(255,255,255,0.22),
-    inset 0 7px 10px rgba(255,255,255,0.90),
-    inset 0 -10px 18px rgba(0,0,0,0.60);
-}
-.paw-button:active{
-  transform:translateY(0) scale(0.965);
-  box-shadow:
-    0 14px 26px rgba(0,0,0,0.95),
-    0 0 0 2px rgba(255,255,255,0.15),
-    inset 0 4px 10px rgba(0,0,0,0.75);
-}
-.paw-label{
-  margin-top:10px;
-  font-family:'Oswald',system-ui,sans-serif;
-  font-size:16px;
-  letter-spacing:0.22em;
-  text-transform:uppercase;
-  color:#ffcf5f;
-}
-
-/* Footer wie Index */
-footer{
-  border-top:1px solid rgba(255,255,255,0.08);
-  padding:16px 20px 24px;
-  font-size:11px;
-  color:#a0a0b5;
-  background:radial-gradient(circle at bottom,#181824 0,#050509 52%,#000 100%);
-}
-.footer-inner{
-  max-width:1120px;
-  margin:0 auto;
-  display:flex;
-  justify-content:space-between;
-  gap:16px;
-  flex-wrap:wrap;
-}
-.footer-links{
-  display:flex;
-  gap:12px;
-  flex-wrap:wrap;
-}
-.footer-links a{
-  color:#a0a0b5;
-  text-decoration:none;
-  text-transform:uppercase;
-  letter-spacing:0.14em;
-}
-
-@media (max-width:780px){
-  .header-inner{ padding-bottom:12px; }
-}
-
-a{ color:#ffcf5f; text-decoration:none; }
-a:hover{ text-decoration:underline; }
 </style>
+<link rel="stylesheet" href="gib-pfote.css">
 </head>
-
-<body>
+<body id="seitenanfang">
 <header>
   <div class="header-inner">
-    <div class="burger" id="burger"><span></span><span></span><span></span></div>
-    <div class="logo-shell">
-      <img src="images/embedded_1.png" alt="DoggyStyle Hundepension Logo" style="width:100%;border-radius:22px;">
+    <div class="burger" id="burger">
+      <span></span><span></span><span></span>
     </div>
+    <div class="logo-shell"><img src="images/embedded_1.png" style="width:100%;border-radius:22px;"></div>
     <div class="brand-title">DoggyStyle Hundepension</div>
     <div class="brand-sub">Urlaub auf dem Wauernhof</div>
   </div>
 </header>
 
 <div class="side-menu-overlay" id="sideOverlay"></div>
-
-<!-- ✅ NAV exakt wie Index (inkl. Preise + Reihenfolge) -->
 <nav class="side-menu" id="sideMenu">
-  <a href="index.html">Start</a>
-  <a href="angebot.html">Angebot</a>
-  <a href="abenteuer.html" class="active">Abenteuer</a>
-  <a href="ueber-uns.html">Über uns</a>
-  <a href="preise.html">Preise</a>
-  <a href="ablauf-faq.html">Ablauf &amp; FAQ</a>
-  <a href="kontakt.html">Kontakt</a>
-  <a href="anfahrt.html">Anfahrt</a>
-  <a href="aktuelles.html">Aktuelles</a>
-  <a href="datenschutz.html">Datenschutz</a>
-  <a href="impressum.html">Impressum</a>
+  <a href="index.html" class="">Start</a>
+  <a href="angebot.html" class="">Angebot</a>
+  <a href="abenteuer.html" class="">Abenteuer</a>
+  <a href="ueber-uns.html" class="">Über uns</a>
+  <a href="preise.html" class="">Preise</a>
+  <a href="ablauf-faq.html" class="">Ablauf &amp; FAQ</a>
+  <a href="kontakt.html" class="">Kontakt</a>
+  <a href="anfahrt.html" class="">Anfahrt</a>
+  <a href="aktuelles.html" class="">Aktuelles</a>
+  <a href="datenschutz.html" class="">Datenschutz</a>
+  <a href="impressum.html" class="">Impressum</a>
 </nav>
+
 
 <div class="wrapper">
 
-  <h1>Abenteuer auf dem Wauernhof</h1>
+<h1>Abenteuer auf dem Wauernhof</h1>
+<div class="card">
+  <p>Hier bekommst du und dein Hund einen kleinen Einblick in die DoggyStyle-Abenteuerwelt – so, wie wir sie jeden Tag mit unseren Gästen erleben.</p>
+  <p>Lehn dich zurück, drück auf Play und schau dir an, wie sich Urlaub auf dem Wauernhof anfühlen kann. 🐾</p>
+</div>
 
-  <div class="card reveal">
-    <p>Hier bekommst du und dein Hund einen kleinen Einblick in die DoggyStyle-Abenteuerwelt – so, wie wir sie jeden Tag mit unseren Gästen erleben.</p>
-    <p>Lehn dich zurück, drück auf Play und schau dir an, wie sich Urlaub auf dem Wauernhof anfühlen kann. 🐾</p>
-  </div>
-
-  <div class="card adventure-card reveal">
+<div class="card adventure-card">
+  <div class="adventure-intro">
     <p class="adventure-tagline">Hier gibt es viele Abenteuer für alle Vierbeiner.</p>
     <p class="adventure-sub">
       Dein Hund darf bei uns toben, schnüffeln, entspannen und einfach Hund sein.
       Das Video zeigt dir einen echten Eindruck – ohne Stockfotos, ohne Schnickschnack.
     </p>
+  </div>
 
-    <div class="adventure-video-wrap">
-      <div class="phone-frame">
-        <div class="phone-notch"></div>
-        <div class="phone-video-inner">
-          <video controls playsinline preload="metadata">
-            <source src="Doggy-Style.mp4" type="video/mp4">
-            Dein Browser unterstützt das Video-Tag nicht.
-          </video>
-        </div>
+  <div class="adventure-video-wrap">
+    <div class="phone-frame">
+      <div class="phone-notch"></div>
+      <div class="phone-video-inner">
+        <video controls playsinline preload="metadata">
+          <source src="Doggy-Style.mp4" type="video/mp4">
+          Dein Browser unterstützt das Video-Tag nicht.
+        </video>
       </div>
     </div>
-
-    <p class="adventure-note">
-      Tipp: Am besten auf dem Handy anschauen – dann fühlt es sich fast so an, als würdest du direkt mit deinem Hund dabei sein.
-    </p>
   </div>
 
-  <!-- Pfotenbereich (unten) -->
-  <div class="paw-section">
-    <div class="paw-row">
-      <div class="paw-hint">nach oben hier ↑</div>
-      <button class="paw-button" id="pawButton" aria-label="Nach oben und Menü öffnen"></button>
-    </div>
-    <div class="paw-label">GIB PFOTE❗️😉</div>
-  </div>
-
+  <p class="adventure-note">
+    Tipp: Am besten auf dem Handy anschauen – dann fühlt es sich fast so an, als würdest du direkt mit deinem Hund dabei sein.
+  </p>
 </div>
 
+<div class="gib-pfote">
+  <a class="gib-pfote__link" href="#seitenanfang" aria-label="Gib Pfote! Zurück nach oben">
+    <span class="gib-pfote__row">
+      <span class="gib-pfote__hint">nach oben hier ↑</span>
+      <span class="gib-pfote__circle">
+        <img src="images/Pfote.PNG" alt="" width="878" height="796">
+      </span>
+    </span>
+    <span class="gib-pfote__caption">Gib Pfote❗ 😉</span>
+  </a>
+</div>
+
+</div>
 <footer>
   <div class="footer-inner">
     <div>© <span id="year"></span> DoggyStyle Hundepension – Urlaub auf dem Wauernhof.</div>
     <div class="footer-links">
       <a href="index.html">Start</a>
-      <a href="anfahrt.html">Anfahrt</a>
-      <a href="kontakt.html">Kontakt</a>
-      <a href="datenschutz.html">Datenschutz</a>
+      <a href="anfahrt.html">Anfahrt</a><a href="datenschutz.html" class="">Datenschutz</a>
       <a href="impressum.html">Impressum</a>
     </div>
-  </div>
+  
+  <p>☎ </p>
+</div>
 </footer>
-
 <script>
   const burger = document.getElementById('burger');
   const sideMenu = document.getElementById('sideMenu');
   const overlay = document.getElementById('sideOverlay');
-
-  function toggleMenu(){
+  function toggleMenu() {
     burger.classList.toggle('open');
     sideMenu.classList.toggle('open');
     overlay.classList.toggle('open');
   }
   burger.addEventListener('click', toggleMenu);
   overlay.addEventListener('click', toggleMenu);
-  sideMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', toggleMenu));
-
-  document.getElementById('year').textContent = new Date().getFullYear();
-
+  sideMenu.querySelectorAll('a').forEach(a => {
+    a.addEventListener('click', () => {
+      toggleMenu();
+    });
+  });
+  document.querySelectorAll('#year').forEach(e => e.textContent = new Date().getFullYear());
+  
   const onScrollHeader = () => {
     const scrolled = window.scrollY || document.documentElement.scrollTop || document.body.scrollTop || 0;
-    if (scrolled > 40) document.body.classList.add('scrolled-down');
-    else document.body.classList.remove('scrolled-down');
+    if (scrolled > 40) {
+      document.body.classList.add('scrolled-down');
+    } else {
+      document.body.classList.remove('scrolled-down');
+    }
   };
   window.addEventListener('scroll', onScrollHeader);
   onScrollHeader();
-
-  // Reveal (früher)
-  const revealEls = document.querySelectorAll('.reveal');
+const revealEls = document.querySelectorAll('.reveal');
   if ('IntersectionObserver' in window) {
     const observer = new IntersectionObserver((entries, obs) => {
       entries.forEach(entry => {
@@ -494,20 +504,11 @@ a:hover{ text-decoration:underline; }
           obs.unobserve(entry.target);
         }
       });
-    }, { threshold: 0.08, rootMargin: "0px 0px -12% 0px" });
+    }, { threshold: 0.15 });
     revealEls.forEach(el => observer.observe(el));
   } else {
     revealEls.forEach(el => el.classList.add('reveal-visible'));
   }
-
-  // Pfotenbutton: hoch + Menü öffnen (kein FEIN auf dieser Seite)
-  const pawButton = document.getElementById('pawButton');
-  pawButton.addEventListener('click', () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-    setTimeout(() => {
-      if (!sideMenu.classList.contains('open')) toggleMenu();
-    }, 650);
-  });
 </script>
 </body>
 </html>
