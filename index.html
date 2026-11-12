@@ -105,8 +105,7 @@ body.scrolled-down .brand-sub {
   opacity:0;
 }
 
-.burger{
-  z-index:9999;
+.burger{z-index:9999;position:absolute;right:22px;top:18px;
   position:absolute;
   right:22px;
   top:18px;
@@ -175,10 +174,6 @@ p {
   border-color:#ff7a2f;
   box-shadow:0 0 32px rgba(255,122,47,0.35);
 }
-.card.quote-card {
-  text-align:center;
-  font-style:italic;
-}
 ul {
   margin:6px 0 6px 20px;
   color:#c8c8d5;
@@ -196,6 +191,21 @@ ul {
   text-decoration:none;
   font-weight:bold;
   box-shadow:0 18px 38px rgba(0,0,0,0.85);
+}
+.btn-paw {
+  display:inline-flex;
+  align-items:center;
+  gap:7px;
+}
+.btn-paw img {
+  width:22px;
+  height:auto;
+  flex:none;
+}
+.small-hint {
+  font-size:11px;
+  color:#a0a0b5;
+  margin:2px 0 6px;
 }
 footer {
   border-top:1px solid rgba(255,255,255,0.08);
@@ -253,7 +263,9 @@ footer {
   z-index:61;
   transition:right .2s ease-out;
 }
-.side-menu.open { right:0; }
+.side-menu.open {
+  right:0;
+}
 .side-menu a {
   color:#d0d0dd;
   text-decoration:none;
@@ -263,25 +275,44 @@ footer {
   padding:6px 0;
   border-bottom:1px solid rgba(255,255,255,0.06);
 }
-.side-menu a.active { color:#ffffff; }
-.side-menu a:last-child { border-bottom:none; }
+.side-menu a.active {
+  color:#ffffff;
+}
+.side-menu a:last-child {
+  border-bottom:none;
+}
+.gallery {
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+  gap:10px;
+  margin-top:10px;
+}
+.gallery img {
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  border-radius:10px;
+  border:1px solid #27273a;
+  box-shadow:0 8px 22px rgba(0,0,0,0.75);
+}
 
 /* Scroll-Reveal Animation */
 .reveal {
   opacity:0;
-  transform:translateY(18px);
-  transition:opacity .55s ease-out, transform .55s ease-out;
+  transform:translateY(24px);
+  transition:opacity .6s ease-out, transform .6s ease-out;
 }
 .reveal.reveal-visible {
   opacity:1;
   transform:translateY(0);
 }
 
+
 /* Bildergalerie auf der Startseite */
 .gallery-grid {
   display:grid;
   gap:16px;
-  margin:18px 0 10px;
+  margin:20px 0 10px;
 }
 .gallery-grid figure {
   position:relative;
@@ -310,183 +341,29 @@ footer {
   text-shadow:0 1px 2px rgba(0,0,0,0.9);
 }
 @media (min-width:780px){
-  .gallery-grid { grid-template-columns:repeat(3,minmax(0,1fr)); }
+  .gallery-grid {
+    grid-template-columns:repeat(3,minmax(0,1fr));
+  }
 }
 
-/* Feiner Bildausschnitt für bestimmte Motive (deine Wünsche) */
-.gallery-grid img.focus-mid {      object-position:50% 86%; } /* Taps im Teich sichtbar */
-.gallery-grid img.focus-tongue {   object-position:50% 82%; } /* Taps Zunge komplett */
-.gallery-grid img.focus-top {      object-position:50% 32%; } /* Dicke gähnt komplett */
-.gallery-grid img.focus-forest {   object-position:50% 92%; } /* Zwei Hunde komplett */
-
-/* Pfoten-Bereich am Seitenende */
-.paw-section {
-  margin-top:34px;
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  text-align:center;
-}
-.paw-row {
-  display:flex;
-  align-items:center;
-  gap:12px;
-}
-.paw-hint {
-  font-family:'Montserrat',system-ui,sans-serif;
-  font-size:13px;
-  color:#c8c8d5;
-  letter-spacing:0.06em;
-}
-.paw-button {
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-  width:84px;
-  height:84px;
-  border-radius:50%;
-  border:1px solid rgba(255,255,255,0.60);
-  cursor:pointer;
-
-  background:
-    url('images/pfote_button.png') center/64% no-repeat,
-    radial-gradient(circle at 30% 18%,
-      rgba(255,255,255,0.98),
-      rgba(240,240,243,0.98) 34%,
-      rgba(210,210,216,1) 72%,
-      rgba(88,88,96,1) 100%);
-
-  transform:translateY(-6px);
-  box-shadow:
-    0 34px 60px rgba(0,0,0,1),
-    0 0 0 2px rgba(255,255,255,0.22),
-    inset 0 7px 10px rgba(255,255,255,0.90),
-    inset 0 -10px 18px rgba(0,0,0,0.60);
-}
-.paw-button:active {
-  transform:translateY(0) scale(0.965);
-  box-shadow:
-    0 14px 26px rgba(0,0,0,0.95),
-    0 0 0 2px rgba(255,255,255,0.15),
-    inset 0 4px 10px rgba(0,0,0,0.75);
-}
-.paw-label {
-  margin-top:10px;
-  font-family:'Oswald',system-ui,sans-serif;
-  font-size:16px;
-  letter-spacing:0.22em;
-  text-transform:uppercase;
-  color:#ffcf5f;
-}
-
-/* FEIN! Overlay */
-.praise-badge {
-  position:fixed;
-  inset:0;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  background:rgba(0,0,0,0.88);
-  opacity:0;
-  pointer-events:none;
-  z-index:90;
-
-  font-family:'Oswald',system-ui,sans-serif;
-  color:#ffcf5f;
-  text-transform:uppercase;
-  letter-spacing:0.34em;
-
-  transform:scale(0.82);
-}
-.praise-badge.show {
-  opacity:1;
-  animation:
-    praise-pop 0.55s ease-out,
-    praise-glow 1.25s ease-in-out 0.55s 3 alternate;
-}
-.praise-wrap{
-  position:relative;
+.call-btn {
   display:inline-block;
-  padding:26px 84px;
+  margin-top:8px;
+  padding:8px 14px;
+  border-radius:999px;
+  background:#ffb347;
+  color:#111111;
+  font-weight:600;
+  text-decoration:none;
+  box-shadow:0 4px 12px rgba(0,0,0,0.35);
 }
-.praise-text{
-  display:inline-block;
-  font-size:54px;
-  text-shadow:0 0 12px rgba(255,207,95,0.35);
+.call-btn:hover {
+  background:#ffcf70;
+  transform:translateY(-1px);
 }
-.paw {
-  position:absolute;
-  top:50%;
-  transform:translateY(-50%);
-  font-size:34px;
-  opacity:0.95;
-  filter: drop-shadow(0 0 8px rgba(255,207,95,0.55));
-}
-.paw-left { left:16px; }
-.paw-right{ right:16px; }
-
-.praise-badge.show .paw-left  { animation:paw-dance-left 0.9s ease-in-out 0.35s 3 alternate; }
-.praise-badge.show .paw-right { animation:paw-dance-right 0.9s ease-in-out 0.35s 3 alternate; }
-
-@keyframes praise-pop {
-  0%   { transform:scale(0.62); }
-  60%  { transform:scale(1.14); }
-  100% { transform:scale(1); }
-}
-@keyframes praise-glow {
-  0% { text-shadow:0 0 14px rgba(255,207,95,0.35); }
-  100% { text-shadow:0 0 30px rgba(255,207,95,0.95); }
-}
-@keyframes paw-dance-left {
-  0%   { transform:translateY(-50%) rotate(0deg); }
-  50%  { transform:translateY(calc(-50% - 10px)) rotate(-16deg) scale(1.08); }
-  100% { transform:translateY(-50%) rotate(0deg); }
-}
-@keyframes paw-dance-right {
-  0%   { transform:translateY(-50%) rotate(0deg); }
-  50%  { transform:translateY(calc(-50% - 10px)) rotate(16deg) scale(1.08); }
-  100% { transform:translateY(-50%) rotate(0deg); }
-}
-
-/* Lightbox */
-.lightbox-overlay {
-  position:fixed;
-  inset:0;
-  background:rgba(0,0,0,0.92);
-  display:none;
-  align-items:center;
-  justify-content:center;
-  z-index:200;
-}
-.lightbox-overlay.open { display:flex; }
-.lightbox-overlay img {
-  max-width:90%;
-  max-height:90%;
-  border-radius:16px;
-  box-shadow:0 24px 60px rgba(0,0,0,0.95);
-}
-.lightbox-close {
-  position:absolute;
-  top:18px;
-  right:22px;
-  font-size:30px;
-  color:#ffffff;
-  cursor:pointer;
-  font-weight:bold;
-}
-
 @media (max-width:780px){
   .header-inner{padding-bottom:12px;}
-  .praise-text{ font-size:40px; letter-spacing:0.28em; }
-  .praise-wrap{ padding:22px 74px; }
-  .paw{ font-size:30px; }
 }
-
-a {
-  color:#ffcf5f;
-  text-decoration:none;
-}
-a:hover { text-decoration:underline; }
 </style>
 </head>
 <body>
@@ -495,50 +372,94 @@ a:hover { text-decoration:underline; }
     <div class="burger" id="burger">
       <span></span><span></span><span></span>
     </div>
-    <div class="logo-shell">
-      <img src="images/embedded_1.png" style="width:100%;border-radius:22px;" alt="DoggyStyle Hundepension Logo">
-    </div>
+    <div class="logo-shell"><img src="images/embedded_1.png" style="width:100%;border-radius:22px;"></div>
     <div class="brand-title">DoggyStyle Hundepension</div>
     <div class="brand-sub">Urlaub auf dem Wauernhof</div>
   </div>
 </header>
 
 <div class="side-menu-overlay" id="sideOverlay"></div>
-
-<!-- ✅ NAV: jetzt wie auf den anderen Seiten + Preise drin -->
 <nav class="side-menu" id="sideMenu">
-  <a href="index.html" class="active">Start</a>
-  <a href="angebot.html">Angebot</a>
-  <a href="abenteuer.html">Abenteuer</a>
-  <a href="ueber-uns.html">Über uns</a>
-  <a href="preise.html">Preise</a>
-  <a href="ablauf-faq.html">Ablauf &amp; FAQ</a>
-  <a href="kontakt.html">Kontakt</a>
-  <a href="anfahrt.html">Anfahrt</a>
-  <a href="aktuelles.html">Aktuelles</a>
-  <a href="datenschutz.html">Datenschutz</a>
-  <a href="impressum.html">Impressum</a>
+  <a href="index.html" class="">Start</a>
+  <a href="angebot.html" class="">Angebot</a>
+  <a href="abenteuer.html" class="">Abenteuer</a>
+  <a href="ueber-uns.html" class="">Über uns</a>
+  <a href="preise.html" class="">Preise</a>
+  <a href="ablauf-faq.html" class="">Ablauf &amp; FAQ</a>
+  <a href="kontakt.html" class="">Kontakt</a>
+  <a href="anfahrt.html" class="">Anfahrt</a>
+  <a href="aktuelles.html" class="">Aktuelles</a>
+  <a href="datenschutz.html" class="">Datenschutz</a>
+  <a href="impressum.html" class="">Impressum</a>
 </nav>
-
-<!-- FEIN!-Overlay -->
-<div class="praise-badge" id="praiseBadge">
-  <div class="praise-wrap">
-    <span class="paw paw-left">🐾</span>
-    <span class="praise-text">FEIN!</span>
-    <span class="paw paw-right">🐾</span>
-  </div>
-</div>
 
 <div class="wrapper">
 
 <h1>DoggyStyle Hundepension</h1>
-
 <div class="card">
   <p><strong>Warum „DoggyStyle“?</strong><br>
   Der Name sorgt oft für ein Grinsen – und ja, das darf er auch. 😄 Aber für uns bedeutet
   „DoggyStyle“ vor allem eins: Hier verbringt dein Hund seine Zeit wirklich hundgerecht – also im <strong>Doggy Style</strong>.</p>
   <p>Mit Hofleben, Struktur, klaren Regeln, Ruhephasen und genug Platz zum Hundsein.</p>
 </div>
+
+
+<section class="card reveal">
+  <h2>Ein Blick auf unseren Wauernhof</h2>
+  <p>Ein paar Eindrücke vom Alltag auf unserem Wauernhof – mit Hunden, Alpakas und Hofleben.</p>
+
+  <div class="gallery-grid">
+    <figure>
+      <img src="images/taps_huhn_napf.jpg" alt="Schwarzer Hund Taps neben einem Huhn am Wassernapf">
+      <figcaption>Taps teilt sich den Platz am Napf mit unserem Huhn.</figcaption>
+    </figure>
+<figure>
+    <img src="images/verspielt_hund.jpg" alt="Verspielter Hund im Stall">
+    <figcaption>Wir sind verspielt und lieben Gesellschaft!</figcaption>
+</figure>
+    <figure>
+      <img src="images/dicke_alpakas_wiese.jpg" alt="Cane Corso Hündin Dicke steht vor einer Alpaka-Herde auf der Wiese">
+      <figcaption>Dicke und die Alpakas – Hofalltag im Team.</figcaption>
+    </figure>
+    <figure>
+      <img src="images/taps_teich.jpg" alt="Hund Taps schwimmt im Naturteich auf dem Hof">
+      <figcaption>Abkühlung im Teich – perfekt für Wasserratten.</figcaption>
+    </figure>
+<figure class="gallery-item">
+<img src="images/kleiner_hund.jpg" alt="Ob groß oder klein – bei uns ist jeder Hund willkommen">
+    <figcaption>Ob groß oder klein – bei uns ist jeder Hund willkommen</figcaption>
+</figure>
+    <figure>
+      <img src="images/taps_portrait_garten.jpg" alt="Taps sitzt lachend auf der Wiese vor dem Haus">
+      <figcaption>Taps – unser gut gelaunter Senior mit Hofblick.</figcaption>
+    </figure>
+    <figure>
+      <img src="images/dicke_gaehn.jpg" alt="Cane Corso Hündin Dicke gähnt entspannt vor dem Haus">
+      <figcaption>Dicke zeigt, wie entspannt Hundepension sein kann.</figcaption>
+    </figure>
+    <figure>
+      <img src="images/hunde_wald.jpg" alt="Zwei Hunde sitzen auf einem Waldweg">
+      <figcaption>Waldrunden im Wald gehören fest zum Programm.</figcaption>
+    </figure>
+    <figure>
+      <img src="images/hunde_alpakas_stall.jpg" alt="Hunde und Alpakas gemeinsam im Auslauf am Hof">
+      <figcaption>Hunde und Alpakas teilen sich hier ganz selbstverständlich den Hof.</figcaption>
+    </figure>
+    <figure>
+      <img src="images/dicke_portrait_wald.jpg" alt="Dicke liegt mit weit herausgestreckter Zunge im Gras">
+      <figcaption>Dicke nach getaner Arbeit – Wächterin im Pausenmodus.</figcaption>
+    </figure>
+    <figure>
+      <img src="images/labbi_stroh.jpg" alt="Brauner Labrador im Stroh bei der Stallarbeit">
+      <figcaption>Mitten im Geschehen – Stallluft für neugierige Nasen.</figcaption>
+    </figure>
+    <figure>
+      <img src="images/labbi_wiese_allgaeu.jpg" alt="Brauner Labrador steht in einer Allgäuer Wiese">
+      <figcaption>Unser Wauernhof – das Zuhause für Hunde, Alpakas und Menschen.</figcaption>
+    </figure>
+  </div>
+</section>
+
 
 <h2>Warum hier?</h2>
 <div class="card">
@@ -548,107 +469,37 @@ a:hover { text-decoration:underline; }
     <li>Offene, ehrliche Kommunikation – ohne Schönreden, aber mit Humor</li>
   </ul>
   <p>Unser Hof ist außerdem Zuhause einer Alpakaherde. Mehr dazu findest du auf:
-  <a href="https://www.wild-westallgaeu-alpaka.de" target="_blank" rel="noopener">Wild Westallgäu Alpaka</a>.</p>
+  <a href="https://www.wild-westallgaeu-alpaka.de" target="_blank" style="color:#ffcf5f;text-decoration:none;">Wild Westallgäu Alpaka</a>.</p>
 </div>
 
 <div class="card highlight">
   <h3>🐾 Bereit für DoggyStyle?</h3>
   <p>Wenn du glaubst, dass dein Hund zu uns passt – und wir zu euch –, schreib uns kurz.</p>
-  <a href="kontakt.html" class="btn">Jetzt anfragen</a>
-</div>
-
-<section class="card reveal">
-  <h2>Ein Blick auf unseren Wauernhof</h2>
-  <p>Ein paar Eindrücke vom Alltag auf unserem Wauernhof – mit Hunden, Alpakas und Hofleben.</p>
-
-  <div class="gallery-grid">
-    <figure>
-      <img src="images/taps_huhn_napf.jpg" alt="Schwarzer Hund Taps neben einem Huhn am Wassernapf" class="lightbox-trigger">
-      <figcaption>Taps teilt sich den Platz am Napf mit unserem Huhn.</figcaption>
-    </figure>
-    <figure>
-      <img src="images/verspielt_hund.jpg" alt="Verspielter Hund im Stall" class="lightbox-trigger">
-      <figcaption>Wir sind verspielt und lieben Gesellschaft!</figcaption>
-    </figure>
-    <figure>
-      <img src="images/dicke_alpakas_wiese.jpg" alt="Cane Corso Hündin Dicke steht vor einer Alpaka-Herde auf der Wiese" class="lightbox-trigger">
-      <figcaption>Dicke und die Alpakas – Hofalltag im Team.</figcaption>
-    </figure>
-    <figure>
-      <img src="images/taps_teich.jpg" alt="Hund Taps schwimmt im Naturteich auf dem Hof" class="lightbox-trigger focus-mid">
-      <figcaption>Abkühlung im Teich – perfekt für Wasserratten.</figcaption>
-    </figure>
-    <figure>
-      <img src="images/kleiner_hund.jpg" alt="Ob groß oder klein – bei uns ist jeder Hund willkommen" class="lightbox-trigger">
-      <figcaption>Ob groß oder klein – bei uns ist jeder Hund willkommen.</figcaption>
-    </figure>
-    <figure>
-      <img src="images/taps_portrait_garten.jpg" alt="Taps sitzt lachend auf der Wiese vor dem Haus" class="lightbox-trigger focus-tongue">
-      <figcaption>Taps – unser gut gelaunter Senior mit Hofblick.</figcaption>
-    </figure>
-    <figure>
-      <img src="images/dicke_gaehn.jpg" alt="Cane Corso Hündin Dicke gähnt entspannt vor dem Haus" class="lightbox-trigger focus-top">
-      <figcaption>Dicke zeigt, wie entspannt Hundepension sein kann.</figcaption>
-    </figure>
-    <figure>
-      <img src="images/hunde_wald.jpg" alt="Zwei Hunde sitzen auf einem Waldweg" class="lightbox-trigger focus-forest">
-      <figcaption>Waldrunden im Wald gehören fest zum Programm.</figcaption>
-    </figure>
-    <figure>
-      <img src="images/hunde_alpakas_stall.jpg" alt="Hunde und Alpakas gemeinsam im Auslauf am Hof" class="lightbox-trigger">
-      <figcaption>Hunde und Alpakas teilen sich hier ganz selbstverständlich den Hof.</figcaption>
-    </figure>
-    <figure>
-      <img src="images/dicke_portrait_wald.jpg" alt="Dicke liegt mit weit herausgestreckter Zunge im Gras" class="lightbox-trigger">
-      <figcaption>Dicke nach getaner Arbeit – Wächterin im Pausenmodus.</figcaption>
-    </figure>
-    <figure>
-      <img src="images/labbi_stroh.jpg" alt="Brauner Labrador im Stroh bei der Stallarbeit" class="lightbox-trigger">
-      <figcaption>Mitten im Geschehen – Stallluft für neugierige Nasen.</figcaption>
-    </figure>
-    <figure>
-      <img src="images/labbi_wiese_allgaeu.jpg" alt="Brauner Labrador steht in einer Allgäuer Wiese" class="lightbox-trigger">
-      <figcaption>Unser Wauernhof – das Zuhause für Hunde, Alpakas und Menschen.</figcaption>
-    </figure>
+  <a href="kontakt.html" class="btn btn-paw">
+    <img src="images/Pfote.PNG" alt="" width="878" height="796">
+    Jetzt anfragen
+  </a>
   </div>
-</section>
-
-<div class="card quote-card">
-  <p>Zwischen Pfotenabdruck und Gummistiefel liegt unsere Komfortzone – mittendrin im echten Leben auf dem Wauernhof.</p>
-</div>
 
 <h2>Einblicke in unseren Alltag</h2>
 <div class="card">
   <p><strong>Keine klassische Zwingerhaltung:</strong><br> Eure Hunde leben bei uns im Haus und auf dem Hof mit engem Familienanschluss – die Bilder zeigen unseren echten Alltag mit Dicke, Taps &amp; Co.</p>
-
-  <div class="gallery-grid" style="margin-top:14px;">
-    <figure><img src="images/embedded_2.jpg" class="lightbox-trigger" alt="Hundebild"></figure>
-    <figure><img src="images/embedded_3.jpg" class="lightbox-trigger" alt="Hundebild"></figure>
-    <figure><img src="images/embedded_4.jpg" class="lightbox-trigger" alt="Hundebild"></figure>
-    <figure><img src="images/embedded_5.jpg" class="lightbox-trigger" alt="Hundebild"></figure>
-    <figure><img src="images/embedded_6.jpg" class="lightbox-trigger" alt="Hundebild"></figure>
-    <figure><img src="images/embedded_7.jpg" class="lightbox-trigger" alt="Hundebild"></figure>
-    <figure><img src="images/embedded_8.jpg" class="lightbox-trigger" alt="Hundebild"></figure>
-    <figure><img src="images/embedded_9.jpg" class="lightbox-trigger" alt="Hundebild"></figure>
-    <figure><img src="images/embedded_10.jpg" class="lightbox-trigger" alt="Hundebild"></figure>
-    <figure><img src="images/dicke_taps.jpg" class="lightbox-trigger" alt="Unsere Hunde und Alpakas – ein starkes Team"></figure>
+  <div class="gallery">
+      <img src="images/embedded_2.jpg" alt="Hundebild" class="reveal">
+      <img src="images/embedded_3.jpg" alt="Hundebild" class="reveal">
+      <img src="images/embedded_4.jpg" alt="Hundebild" class="reveal">
+      <img src="images/embedded_5.jpg" alt="Hundebild" class="reveal">
+      <img src="images/embedded_6.jpg" alt="Hundebild" class="reveal">
+      <img src="images/embedded_7.jpg" alt="Hundebild" class="reveal">
+      <img src="images/embedded_8.jpg" alt="Hundebild" class="reveal">
+      <img src="images/embedded_9.jpg" alt="Hundebild" class="reveal">
+      <img src="images/embedded_10.jpg" alt="Hundebild" class="reveal">
+<div class="gallery">
+    <img src="images/dicke_taps.jpg" alt="Unsere Hunde und Alpakas – ein starkes Team">
+</div>
   </div>
 </div>
 
-<div class="paw-section">
-  <div class="paw-row">
-    <div class="paw-hint">nach oben hier ↑</div>
-    <button class="paw-button" id="pawButton" aria-label="Nach oben und Menü öffnen"></button>
-  </div>
-  <div class="paw-label">GIB PFOTE❗️😉</div>
-</div>
-
-</div>
-
-<!-- Lightbox -->
-<div class="lightbox-overlay" id="lightbox">
-  <span class="lightbox-close" id="lightboxClose">&times;</span>
-  <img id="lightboxImg" src="" alt="">
 </div>
 
 <footer>
@@ -656,42 +507,42 @@ a:hover { text-decoration:underline; }
     <div>© <span id="year"></span> DoggyStyle Hundepension – Urlaub auf dem Wauernhof.</div>
     <div class="footer-links">
       <a href="index.html">Start</a>
-      <a href="anfahrt.html">Anfahrt</a>
-      <a href="kontakt.html">Kontakt</a>
-      <a href="datenschutz.html">Datenschutz</a>
+      <a href="anfahrt.html">Anfahrt</a><a href="datenschutz.html" class="">Datenschutz</a>
       <a href="impressum.html">Impressum</a>
     </div>
-  </div>
+  
+  <p>☎ </p>
+</div>
 </footer>
-
 <script>
   const burger = document.getElementById('burger');
   const sideMenu = document.getElementById('sideMenu');
   const overlay = document.getElementById('sideOverlay');
-  const praiseBadge = document.getElementById('praiseBadge');
-
   function toggleMenu() {
     burger.classList.toggle('open');
     sideMenu.classList.toggle('open');
     overlay.classList.toggle('open');
   }
-
   burger.addEventListener('click', toggleMenu);
   overlay.addEventListener('click', toggleMenu);
-  sideMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', toggleMenu));
-
+  sideMenu.querySelectorAll('a').forEach(a => {
+    a.addEventListener('click', () => {
+      toggleMenu();
+    });
+  });
   document.querySelectorAll('#year').forEach(e => e.textContent = new Date().getFullYear());
-
+  
   const onScrollHeader = () => {
     const scrolled = window.scrollY || document.documentElement.scrollTop || document.body.scrollTop || 0;
-    if (scrolled > 40) document.body.classList.add('scrolled-down');
-    else document.body.classList.remove('scrolled-down');
+    if (scrolled > 40) {
+      document.body.classList.add('scrolled-down');
+    } else {
+      document.body.classList.remove('scrolled-down');
+    }
   };
   window.addEventListener('scroll', onScrollHeader);
   onScrollHeader();
-
-  // Reveal früher
-  const revealEls = document.querySelectorAll('.reveal');
+const revealEls = document.querySelectorAll('.reveal');
   if ('IntersectionObserver' in window) {
     const observer = new IntersectionObserver((entries, obs) => {
       entries.forEach(entry => {
@@ -700,46 +551,11 @@ a:hover { text-decoration:underline; }
           obs.unobserve(entry.target);
         }
       });
-    }, {
-      threshold: 0.06,
-      rootMargin: "0px 0px -12% 0px"
-    });
+    }, { threshold: 0.15 });
     revealEls.forEach(el => observer.observe(el));
   } else {
     revealEls.forEach(el => el.classList.add('reveal-visible'));
   }
-
-  // Lightbox
-  const lightbox = document.getElementById('lightbox');
-  const lightboxImg = document.getElementById('lightboxImg');
-  const lightboxClose = document.getElementById('lightboxClose');
-
-  document.querySelectorAll('.lightbox-trigger').forEach(img => {
-    img.addEventListener('click', () => {
-      lightboxImg.src = img.src;
-      lightboxImg.alt = img.alt || '';
-      lightbox.classList.add('open');
-    });
-  });
-  function closeLightbox() {
-    lightbox.classList.remove('open');
-    lightboxImg.src = '';
-  }
-  lightboxClose.addEventListener('click', closeLightbox);
-  lightbox.addEventListener('click', (e) => { if (e.target === lightbox) closeLightbox(); });
-
-  // Pfoten-Button: hochscrollen + Menü öffnen + FEIN!
-  const pawButton = document.getElementById('pawButton');
-  pawButton.addEventListener('click', () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-    setTimeout(() => {
-      if (!sideMenu.classList.contains('open')) toggleMenu();
-      if (praiseBadge) {
-        praiseBadge.classList.add('show');
-        setTimeout(() => praiseBadge.classList.remove('show'), 2100);
-      }
-    }, 300);
-  });
 </script>
 </body>
 </html>

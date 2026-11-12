@@ -7,16 +7,15 @@
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&family=Oswald:wght@400;600&display=swap');
 
-*{ box-sizing:border-box; }
+* { box-sizing:border-box; }
 
-body{
+body {
   background:#050509;
   color:#f2f2f2;
   font-family:'Montserrat',system-ui,-apple-system,BlinkMacSystemFont,sans-serif;
   margin:0;
 }
-
-header{
+header {
   position:sticky;
   top:0;
   z-index:40;
@@ -25,12 +24,13 @@ header{
   border-bottom:1px solid rgba(255,255,255,0.08);
   transition:transform .6s ease-in-out, opacity .6s ease-in-out;
 }
-body.scrolled-down header{
+
+body.scrolled-down header {
   transform:translateY(-120%);
   opacity:0;
 }
 
-.header-inner{
+.header-inner {
   max-width:1120px;
   margin:0 auto;
   padding:12px 20px 18px;
@@ -40,7 +40,7 @@ body.scrolled-down header{
   gap:8px;
   position:relative;
 }
-.header-inner::before{
+.header-inner::before {
   content:'';
   position:absolute;
   top:38%;
@@ -53,8 +53,7 @@ body.scrolled-down header{
   opacity:0.9;
   z-index:-2;
 }
-
-.logo-shell{
+.logo-shell {
   padding:10px;
   border-radius:30px;
   background:linear-gradient(135deg,rgba(255,122,47,0.25),rgba(10,6,18,0.9));
@@ -67,15 +66,18 @@ body.scrolled-down header{
   transform-origin:center;
   transition:transform .35s ease-out, box-shadow .35s ease-out, background .35s ease-out, border-color .35s ease-out;
 }
-.header-inner:hover .logo-shell{
+.header-inner:hover .logo-shell {
   transform:translateY(-2px) scale(1.01);
   box-shadow:0 32px 80px rgba(0,0,0,1);
   background:linear-gradient(135deg,rgba(255,122,47,0.35),rgba(10,6,18,0.95));
   border-color:rgba(255,207,95,1);
 }
-.logo-shell img{ width:100%; display:block; border-radius:22px; }
-
-.brand-title{
+.logo-shell img {
+  width:100%;
+  display:block;
+  border-radius:22px;
+}
+.brand-title {
   font-family:'Oswald',system-ui,sans-serif;
   font-size:15px;
   letter-spacing:0.22em;
@@ -83,26 +85,27 @@ body.scrolled-down header{
   font-weight:600;
   margin-top:6px;
 }
-.brand-sub{
+.brand-sub {
   font-size:11px;
   color:#ffcf5f;
   letter-spacing:0.2em;
   text-transform:uppercase;
 }
-
-.logo-shell,.brand-title,.brand-sub{
+.logo-shell,
+.brand-title,
+.brand-sub {
   transition:transform .45s ease-out, opacity .45s ease-out;
   transition-delay:.12s;
 }
+
 body.scrolled-down .logo-shell,
 body.scrolled-down .brand-title,
-body.scrolled-down .brand-sub{
+body.scrolled-down .brand-sub {
   transform:translateY(-26px);
   opacity:0;
 }
 
-.burger{
-  z-index:9999;
+.burger{z-index:9999;position:absolute;right:22px;top:18px;
   position:absolute;
   right:22px;
   top:18px;
@@ -113,41 +116,53 @@ body.scrolled-down .brand-sub{
   flex-direction:column;
   justify-content:space-between;
 }
-.burger span{
+.burger span {
   height:3px;
   border-radius:999px;
   background:#f2f2f2;
   transition:transform .2s ease-out, opacity .2s ease-out;
 }
-.burger.open span:nth-child(1){ transform:translateY(9px) rotate(45deg); }
-.burger.open span:nth-child(2){ opacity:0; }
-.burger.open span:nth-child(3){ transform:translateY(-9px) rotate(-45deg); }
-
-.wrapper{
+.burger.open span:nth-child(1) {
+  transform:translateY(9px) rotate(45deg);
+}
+.burger.open span:nth-child(2) {
+  opacity:0;
+}
+.burger.open span:nth-child(3) {
+  transform:translateY(-9px) rotate(-45deg);
+}
+.wrapper {
   max-width:1120px;
   margin:0 auto;
   padding:26px 20px 60px;
 }
-
-h1,h2,h3{ font-family:'Oswald',system-ui,sans-serif; }
-h1{
+h1,h2,h3 {
+  font-family:'Oswald',system-ui,sans-serif;
+}
+h1 {
   font-size:30px;
   margin:0 0 10px;
   letter-spacing:0.06em;
   text-transform:uppercase;
 }
-h2{
+h2 {
   color:#ff7a2f;
   text-transform:uppercase;
   letter-spacing:0.16em;
   font-size:16px;
   margin:30px 0 10px;
 }
-h3{ color:#f2f2f2; margin-top:18px; margin-bottom:6px; }
-
-p{ margin:6px 0; color:#d0d0dd; line-height:1.5; }
-
-.card{
+h3 {
+  color:#f2f2f2;
+  margin-top:18px;
+  margin-bottom:6px;
+}
+p {
+  margin:6px 0;
+  color:#d0d0dd;
+  line-height:1.5;
+}
+.card {
   background:#181824;
   border-radius:12px;
   border:1px solid #27273a;
@@ -155,14 +170,15 @@ p{ margin:6px 0; color:#d0d0dd; line-height:1.5; }
   margin:10px 0 18px;
   box-shadow:0 16px 36px rgba(0,0,0,0.8);
 }
-.card.highlight{
+.card.highlight {
   border-color:#ff7a2f;
   box-shadow:0 0 32px rgba(255,122,47,0.35);
 }
-
-ul{ margin:6px 0 6px 20px; color:#c8c8d5; }
-
-.btn{
+ul {
+  margin:6px 0 6px 20px;
+  color:#c8c8d5;
+}
+.btn {
   display:inline-block;
   margin-top:10px;
   padding:9px 18px;
@@ -176,9 +192,48 @@ ul{ margin:6px 0 6px 20px; color:#c8c8d5; }
   font-weight:bold;
   box-shadow:0 18px 38px rgba(0,0,0,0.85);
 }
-
-/* Side Menu */
-.side-menu-overlay{
+.btn-paw {
+  display:inline-flex;
+  align-items:center;
+  gap:7px;
+}
+.btn-paw img {
+  width:22px;
+  height:auto;
+  flex:none;
+}
+.small-hint {
+  font-size:11px;
+  color:#a0a0b5;
+  margin:2px 0 6px;
+}
+footer {
+  border-top:1px solid rgba(255,255,255,0.08);
+  padding:16px 20px 24px;
+  font-size:11px;
+  color:#a0a0b5;
+  background:radial-gradient(circle at bottom,#181824 0,#050509 52%,#000 100%);
+}
+.footer-inner {
+  max-width:1120px;
+  margin:0 auto;
+  display:flex;
+  justify-content:space-between;
+  gap:16px;
+  flex-wrap:wrap;
+}
+.footer-links {
+  display:flex;
+  gap:12px;
+  flex-wrap:wrap;
+}
+.footer-links a {
+  color:#a0a0b5;
+  text-decoration:none;
+  text-transform:uppercase;
+  letter-spacing:0.14em;
+}
+.side-menu-overlay {
   position:fixed;
   inset:0;
   background:rgba(0,0,0,0.7);
@@ -188,9 +243,11 @@ ul{ margin:6px 0 6px 20px; color:#c8c8d5; }
   transition:opacity .2s ease-out, visibility .2s ease-out;
   z-index:60;
 }
-.side-menu-overlay.open{ opacity:1; visibility:visible; }
-
-.side-menu{
+.side-menu-overlay.open {
+  opacity:1;
+  visibility:visible;
+}
+.side-menu {
   position:fixed;
   top:0;
   right:-260px;
@@ -206,8 +263,10 @@ ul{ margin:6px 0 6px 20px; color:#c8c8d5; }
   z-index:61;
   transition:right .2s ease-out;
 }
-.side-menu.open{ right:0; }
-.side-menu a{
+.side-menu.open {
+  right:0;
+}
+.side-menu a {
   color:#d0d0dd;
   text-decoration:none;
   font-size:13px;
@@ -216,165 +275,50 @@ ul{ margin:6px 0 6px 20px; color:#c8c8d5; }
   padding:6px 0;
   border-bottom:1px solid rgba(255,255,255,0.06);
 }
-.side-menu a.active{ color:#ffffff; }
-.side-menu a:last-child{ border-bottom:none; }
-
-/* Reveal */
-.reveal{
-  opacity:0;
-  transform:translateY(18px);
-  transition:opacity .55s ease-out, transform .55s ease-out;
+.side-menu a.active {
+  color:#ffffff;
 }
-.reveal.reveal-visible{
-  opacity:1;
-  transform:translateY(0);
+.side-menu a:last-child {
+  border-bottom:none;
 }
-
-/* kleine Galerie */
-.gallery{
+.gallery {
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
   gap:10px;
   margin-top:10px;
 }
-.gallery img{
+.gallery img {
   width:100%;
   height:100%;
   object-fit:cover;
   border-radius:10px;
   border:1px solid #27273a;
   box-shadow:0 8px 22px rgba(0,0,0,0.75);
-  cursor:pointer;
 }
 
-/* Pfotenbereich (unten) */
-.paw-section{
-  margin-top:34px;
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  text-align:center;
+/* Scroll-Reveal Animation */
+.reveal {
+  opacity:0;
+  transform:translateY(24px);
+  transition:opacity .6s ease-out, transform .6s ease-out;
 }
-.paw-row{
-  display:flex;
-  align-items:center;
-  gap:12px;
-}
-.paw-hint{
-  font-family:'Montserrat',system-ui,sans-serif;
-  font-size:13px;
-  color:#c8c8d5;
-  letter-spacing:0.06em;
-}
-.paw-button{
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-  width:84px;
-  height:84px;
-  border-radius:50%;
-  border:1px solid rgba(255,255,255,0.60);
-  cursor:pointer;
-  background:
-    url('images/pfote_button.png') center/64% no-repeat,
-    radial-gradient(circle at 30% 18%,
-      rgba(255,255,255,0.98),
-      rgba(240,240,243,0.98) 34%,
-      rgba(210,210,216,1) 72%,
-      rgba(88,88,96,1) 100%);
-  transform:translateY(-6px);
-  box-shadow:
-    0 34px 60px rgba(0,0,0,1),
-    0 0 0 2px rgba(255,255,255,0.22),
-    inset 0 7px 10px rgba(255,255,255,0.90),
-    inset 0 -10px 18px rgba(0,0,0,0.60);
-}
-.paw-button:active{
-  transform:translateY(0) scale(0.965);
-  box-shadow:
-    0 14px 26px rgba(0,0,0,0.95),
-    0 0 0 2px rgba(255,255,255,0.15),
-    inset 0 4px 10px rgba(0,0,0,0.75);
-}
-.paw-label{
-  margin-top:10px;
-  font-family:'Oswald',system-ui,sans-serif;
-  font-size:16px;
-  letter-spacing:0.22em;
-  text-transform:uppercase;
-  color:#ffcf5f;
-}
-
-/* Lightbox */
-.lightbox-overlay{
-  position:fixed;
-  inset:0;
-  background:rgba(0,0,0,0.92);
-  display:none;
-  align-items:center;
-  justify-content:center;
-  z-index:200;
-}
-.lightbox-overlay.open{ display:flex; }
-.lightbox-overlay img{
-  max-width:90%;
-  max-height:90%;
-  border-radius:16px;
-  box-shadow:0 24px 60px rgba(0,0,0,0.95);
-}
-.lightbox-close{
-  position:absolute;
-  top:18px;
-  right:22px;
-  font-size:30px;
-  color:#ffffff;
-  cursor:pointer;
-  font-weight:bold;
-}
-
-footer{
-  border-top:1px solid rgba(255,255,255,0.08);
-  padding:16px 20px 24px;
-  font-size:11px;
-  color:#a0a0b5;
-  background:radial-gradient(circle at bottom,#181824 0,#050509 52%,#000 100%);
-}
-.footer-inner{
-  max-width:1120px;
-  margin:0 auto;
-  display:flex;
-  justify-content:space-between;
-  gap:16px;
-  flex-wrap:wrap;
-}
-.footer-links{
-  display:flex;
-  gap:12px;
-  flex-wrap:wrap;
-}
-.footer-links a{
-  color:#a0a0b5;
-  text-decoration:none;
-  text-transform:uppercase;
-  letter-spacing:0.14em;
+.reveal.reveal-visible {
+  opacity:1;
+  transform:translateY(0);
 }
 
 @media (max-width:780px){
-  .header-inner{ padding-bottom:12px; }
+  .header-inner{padding-bottom:12px;}
 }
-
-a{ color:#ffcf5f; text-decoration:none; }
-a:hover{ text-decoration:underline; }
 </style>
 </head>
-
 <body>
 <header>
   <div class="header-inner">
-    <div class="burger" id="burger"><span></span><span></span><span></span></div>
-    <div class="logo-shell">
-      <img src="images/embedded_1.png" alt="DoggyStyle Hundepension Logo" style="width:100%;border-radius:22px;">
+    <div class="burger" id="burger">
+      <span></span><span></span><span></span>
     </div>
+    <div class="logo-shell"><img src="images/embedded_1.png" style="width:100%;border-radius:22px;"></div>
     <div class="brand-title">DoggyStyle Hundepension</div>
     <div class="brand-sub">Urlaub auf dem Wauernhof</div>
   </div>
@@ -382,74 +326,61 @@ a:hover{ text-decoration:underline; }
 
 <div class="side-menu-overlay" id="sideOverlay"></div>
 <nav class="side-menu" id="sideMenu">
-  <a href="index.html">Start</a>
-  <a href="angebot.html" class="active">Angebot</a>
-  <a href="abenteuer.html">Abenteuer</a>
-  <a href="ueber-uns.html">Über uns</a>
-  <a href="preise.html">Preise</a>
-  <a href="ablauf-faq.html">Ablauf &amp; FAQ</a>
-  <a href="kontakt.html">Kontakt</a>
-  <a href="anfahrt.html">Anfahrt</a>
-  <a href="aktuelles.html">Aktuelles</a>
-  <a href="datenschutz.html">Datenschutz</a>
-  <a href="impressum.html">Impressum</a>
+  <a href="index.html" class="">Start</a>
+  <a href="angebot.html" class="">Angebot</a>
+  <a href="abenteuer.html" class="">Abenteuer</a>
+  <a href="ueber-uns.html" class="">Über uns</a>
+  <a href="preise.html" class="">Preise</a>
+  <a href="ablauf-faq.html" class="">Ablauf &amp; FAQ</a>
+  <a href="kontakt.html" class="">Kontakt</a>
+  <a href="anfahrt.html" class="">Anfahrt</a>
+  <a href="aktuelles.html" class="">Aktuelles</a>
+  <a href="datenschutz.html" class="">Datenschutz</a>
+  <a href="impressum.html" class="">Impressum</a>
 </nav>
 
 <div class="wrapper">
 
-  <h1>Angebot</h1>
-
-  <div class="card reveal">
-    <h3>Urlaub auf dem Wauernhof</h3>
-    <p>Dein Hund lebt bei uns mitten im Hofalltag – mit Wiese, Hofgeräuschen, anderen Tieren und festen Ruhezeiten.</p>
-    <ul>
-      <li>Kleine, überschaubare Gruppen</li>
-      <li>Rückzugsmöglichkeiten für Ruhe und Schlaf</li>
-      <li>Fütterung nach Absprache (mit deinem eigenen Futter)</li>
-    </ul>
-  </div>
-
-  <div class="card reveal">
-    <h3>Tagesbetreuung</h3>
-    <p>Für Hunde, die nicht den ganzen Tag allein bleiben sollen: Alltag mit Struktur statt Dauer-Action.</p>
-  </div>
-
-  <div class="card reveal">
-    <h3>Kennenlernen &amp; Probetag</h3>
-    <p>Bevor wir „Ja“ sagen, lernen wir euch kennen und testen den Alltag hier. Danach gibt es eine ehrliche Einschätzung.</p>
-  </div>
-
-  <div class="card highlight reveal">
-    <h3>🐾 Bereit für DoggyStyle?</h3>
-    <p>Wenn du dir vorstellen kannst, deinen Hund hier im Hofalltag mitzuleben, melde dich bei uns.</p>
-    <a href="kontakt.html" class="btn">Jetzt anfragen</a>
-  </div>
-
-  <h2>Alltag &amp; Unterkunft</h2>
-  <div class="card reveal">
-    <p>So sieht ein Mix aus Hofalltag, Ruhebereich und Familienhunden bei uns aus.</p>
-    <div class="gallery">
-      <img src="images/embedded_3.jpg" alt="Hundebild" class="reveal lightbox-trigger">
-      <img src="images/embedded_5.jpg" alt="Hundebild" class="reveal lightbox-trigger">
-      <img src="images/embedded_7.jpg" alt="Hundebild" class="reveal lightbox-trigger">
-    </div>
-  </div>
-
-  <!-- Pfotenbereich (unten) -->
-  <div class="paw-section">
-    <div class="paw-row">
-      <div class="paw-hint">nach oben hier ↑</div>
-      <button class="paw-button" id="pawButton" aria-label="Nach oben und Menü öffnen"></button>
-    </div>
-    <div class="paw-label">GIB PFOTE❗️😉</div>
-  </div>
-
+<h1>Angebot</h1>
+<div class="card">
+  <h3>Urlaub auf dem Wauernhof</h3>
+  <p>Dein Hund lebt bei uns mitten im Hofalltag – mit Wiese, Hofgeräuschen, anderen Tieren und festen Ruhezeiten.</p>
+  <ul>
+    <li>Kleine, überschaubare Gruppen</li>
+    <li>Rückzugsmöglichkeiten für Ruhe und Schlaf</li>
+    <li>Fütterung nach Absprache (mit deinem eigenen Futter)</li>
+  </ul>
 </div>
 
-<!-- Lightbox -->
-<div class="lightbox-overlay" id="lightbox">
-  <span class="lightbox-close" id="lightboxClose">&times;</span>
-  <img id="lightboxImg" src="" alt="">
+<div class="card">
+  <h3>Tagesbetreuung</h3>
+  <p>Für Hunde, die nicht den ganzen Tag allein bleiben sollen: Alltag mit Struktur statt Dauer-Action.</p>
+</div>
+
+<div class="card">
+  <h3>Kennenlernen &amp; Probetag</h3>
+  <p>Bevor wir „Ja“ sagen, lernen wir euch kennen und testen den Alltag hier. Danach gibt es eine ehrliche Einschätzung.</p>
+</div>
+
+<div class="card highlight">
+  <h3>🐾 Bereit für DoggyStyle?</h3>
+  <p>Wenn du dir vorstellen kannst, deinen Hund hier im Hofalltag mitzuleben, melde dich bei uns.</p>
+  <a href="kontakt.html" class="btn btn-paw">
+    <img src="images/Pfote.PNG" alt="" width="878" height="796">
+    Jetzt anfragen
+  </a>
+</div>
+
+<h2>Alltag & Unterkunft</h2>
+<div class="card">
+  <p>So sieht ein Mix aus Hofalltag, Ruhebereich und Familienhunden bei uns aus.</p>
+  <div class="gallery">
+      <img src="images/embedded_3.jpg" alt="Hundebild" class="reveal">
+      <img src="images/embedded_5.jpg" alt="Hundebild" class="reveal">
+      <img src="images/embedded_7.jpg" alt="Hundebild" class="reveal">
+  </div>
+</div>
+
 </div>
 
 <footer>
@@ -457,40 +388,42 @@ a:hover{ text-decoration:underline; }
     <div>© <span id="year"></span> DoggyStyle Hundepension – Urlaub auf dem Wauernhof.</div>
     <div class="footer-links">
       <a href="index.html">Start</a>
-      <a href="anfahrt.html">Anfahrt</a>
-      <a href="kontakt.html">Kontakt</a>
-      <a href="datenschutz.html">Datenschutz</a>
+      <a href="anfahrt.html">Anfahrt</a><a href="datenschutz.html" class="">Datenschutz</a>
       <a href="impressum.html">Impressum</a>
     </div>
-  </div>
+  
+  <p>☎ </p>
+</div>
 </footer>
-
 <script>
   const burger = document.getElementById('burger');
   const sideMenu = document.getElementById('sideMenu');
   const overlay = document.getElementById('sideOverlay');
-
-  function toggleMenu(){
+  function toggleMenu() {
     burger.classList.toggle('open');
     sideMenu.classList.toggle('open');
     overlay.classList.toggle('open');
   }
   burger.addEventListener('click', toggleMenu);
   overlay.addEventListener('click', toggleMenu);
-  sideMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', toggleMenu));
-
-  document.getElementById('year').textContent = new Date().getFullYear();
-
+  sideMenu.querySelectorAll('a').forEach(a => {
+    a.addEventListener('click', () => {
+      toggleMenu();
+    });
+  });
+  document.querySelectorAll('#year').forEach(e => e.textContent = new Date().getFullYear());
+  
   const onScrollHeader = () => {
     const scrolled = window.scrollY || document.documentElement.scrollTop || document.body.scrollTop || 0;
-    if (scrolled > 40) document.body.classList.add('scrolled-down');
-    else document.body.classList.remove('scrolled-down');
+    if (scrolled > 40) {
+      document.body.classList.add('scrolled-down');
+    } else {
+      document.body.classList.remove('scrolled-down');
+    }
   };
   window.addEventListener('scroll', onScrollHeader);
   onScrollHeader();
-
-  // Reveal (früher)
-  const revealEls = document.querySelectorAll('.reveal');
+const revealEls = document.querySelectorAll('.reveal');
   if ('IntersectionObserver' in window) {
     const observer = new IntersectionObserver((entries, obs) => {
       entries.forEach(entry => {
@@ -499,40 +432,11 @@ a:hover{ text-decoration:underline; }
           obs.unobserve(entry.target);
         }
       });
-    }, { threshold: 0.08, rootMargin: "0px 0px -12% 0px" });
+    }, { threshold: 0.15 });
     revealEls.forEach(el => observer.observe(el));
   } else {
     revealEls.forEach(el => el.classList.add('reveal-visible'));
   }
-
-  // Lightbox
-  const lightbox = document.getElementById('lightbox');
-  const lightboxImg = document.getElementById('lightboxImg');
-  const lightboxClose = document.getElementById('lightboxClose');
-
-  document.querySelectorAll('.lightbox-trigger').forEach(img => {
-    img.addEventListener('click', () => {
-      lightboxImg.src = img.src;
-      lightboxImg.alt = img.alt || '';
-      lightbox.classList.add('open');
-    });
-  });
-
-  function closeLightbox(){
-    lightbox.classList.remove('open');
-    lightboxImg.src = '';
-  }
-  lightboxClose.addEventListener('click', closeLightbox);
-  lightbox.addEventListener('click', (e) => { if (e.target === lightbox) closeLightbox(); });
-
-  // Pfotenbutton: hoch + Menü öffnen (kein FEIN auf dieser Seite)
-  const pawButton = document.getElementById('pawButton');
-  pawButton.addEventListener('click', () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-    setTimeout(() => {
-      if (!sideMenu.classList.contains('open')) toggleMenu();
-    }, 650);
-  });
 </script>
 </body>
 </html>
