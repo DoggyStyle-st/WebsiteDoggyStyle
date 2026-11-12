@@ -332,6 +332,29 @@ footer {
   opacity: 0.9;
 }
 
+.hundeportraits {
+  display: grid;
+  grid-template-columns: repeat(2,minmax(0,1fr));
+  gap: 16px;
+  max-width: 856px;
+  margin: 14px auto;
+}
+
+.hundeportraits .portrait-card {
+  margin: 0;
+}
+
+.hundeportraits img {
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+}
+
+@media (max-width:520px) {
+  .hundeportraits {
+    grid-template-columns: 1fr;
+  }
+}
+
 .pickup-card {
   margin-top: 14px;
 }
@@ -362,6 +385,7 @@ footer {
 }
 </style>
 <link rel="stylesheet" href="gib-pfote.css">
+<script src="gib-pfote.js" defer></script>
 </head>
 <body id="seitenanfang">
 <header>
@@ -468,10 +492,16 @@ footer {
     <li><strong>Dicke</strong> – Cane Corso Hündin, sensibel, wachsam, außen hart, innen weicher als gedacht.</li>
     <li><strong>Hooch</strong> ist neu bei uns am Hof. Unser kleiner Frechdachs bringt uns mit seiner lustigen Art immer wieder zum Lachen.</li>
   </ul>
-  <figure class="portrait-card">
-    <img src="images/hooch-im-gras.jpg" alt="Hooch liegt bäuchlings im Gras und schaut in die Kamera" width="1149" height="1662" loading="lazy" decoding="async">
-    <figcaption>Hooch auf der Wiese.</figcaption>
-  </figure>
+  <div class="hundeportraits">
+    <figure class="portrait-card">
+      <img src="images/dicke_portrait_wald.jpg" alt="Dicke liegt im Wald und schaut in die Kamera" width="1536" height="1391" loading="lazy" decoding="async">
+      <figcaption>Dicke im Wald.</figcaption>
+    </figure>
+    <figure class="portrait-card">
+      <img src="images/hooch-im-gras.jpg" alt="Hooch liegt bäuchlings im Gras und schaut in die Kamera" width="1149" height="1662" loading="lazy" decoding="async">
+      <figcaption>Hooch auf der Wiese.</figcaption>
+    </figure>
+  </div>
   <p>Dazu kommt unser Alpakahof – keine Kulisse, sondern Mitbewohner mit Charakter.</p>
 </div>
 
@@ -522,33 +552,7 @@ footer {
 </div>
 </footer>
 <script>
-  const burger = document.getElementById('burger');
-  const sideMenu = document.getElementById('sideMenu');
-  const overlay = document.getElementById('sideOverlay');
-  function toggleMenu() {
-    burger.classList.toggle('open');
-    sideMenu.classList.toggle('open');
-    overlay.classList.toggle('open');
-  }
-  burger.addEventListener('click', toggleMenu);
-  overlay.addEventListener('click', toggleMenu);
-  sideMenu.querySelectorAll('a').forEach(a => {
-    a.addEventListener('click', () => {
-      toggleMenu();
-    });
-  });
   document.querySelectorAll('#year').forEach(e => e.textContent = new Date().getFullYear());
-  
-  const onScrollHeader = () => {
-    const scrolled = window.scrollY || document.documentElement.scrollTop || document.body.scrollTop || 0;
-    if (scrolled > 40) {
-      document.body.classList.add('scrolled-down');
-    } else {
-      document.body.classList.remove('scrolled-down');
-    }
-  };
-  window.addEventListener('scroll', onScrollHeader);
-  onScrollHeader();
 const revealEls = document.querySelectorAll('.reveal');
   if ('IntersectionObserver' in window) {
     const observer = new IntersectionObserver((entries, obs) => {

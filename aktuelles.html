@@ -302,6 +302,7 @@ footer {
 }
 </style>
 <link rel="stylesheet" href="gib-pfote.css">
+<script src="gib-pfote.js" defer></script>
 </head>
 <body id="seitenanfang">
 <header>
@@ -419,33 +420,7 @@ footer {
 </div>
 </footer>
 <script>
-  const burger = document.getElementById('burger');
-  const sideMenu = document.getElementById('sideMenu');
-  const overlay = document.getElementById('sideOverlay');
-  function toggleMenu() {
-    burger.classList.toggle('open');
-    sideMenu.classList.toggle('open');
-    overlay.classList.toggle('open');
-  }
-  burger.addEventListener('click', toggleMenu);
-  overlay.addEventListener('click', toggleMenu);
-  sideMenu.querySelectorAll('a').forEach(a => {
-    a.addEventListener('click', () => {
-      toggleMenu();
-    });
-  });
   document.querySelectorAll('#year').forEach(e => e.textContent = new Date().getFullYear());
-  
-  const onScrollHeader = () => {
-    const scrolled = window.scrollY || document.documentElement.scrollTop || document.body.scrollTop || 0;
-    if (scrolled > 40) {
-      document.body.classList.add('scrolled-down');
-    } else {
-      document.body.classList.remove('scrolled-down');
-    }
-  };
-  window.addEventListener('scroll', onScrollHeader);
-  onScrollHeader();
 const revealEls = document.querySelectorAll('.reveal');
   if ('IntersectionObserver' in window) {
     const observer = new IntersectionObserver((entries, obs) => {
