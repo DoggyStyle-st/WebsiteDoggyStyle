@@ -271,21 +271,6 @@ footer {
 .side-menu a:last-child {
   border-bottom:none;
 }
-.gallery {
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
-  gap:10px;
-  margin-top:10px;
-}
-.gallery img {
-  width:100%;
-  height:100%;
-  object-fit:cover;
-  border-radius:10px;
-  border:1px solid #27273a;
-  box-shadow:0 8px 22px rgba(0,0,0,0.75);
-}
-
 /* Scroll-Reveal Animation */
 .reveal {
   opacity:0;
@@ -301,39 +286,116 @@ footer {
 /* Bildergalerie auf der Startseite */
 .gallery-grid {
   display:grid;
-  gap:16px;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:clamp(10px,2vw,16px);
   margin:20px 0 10px;
 }
-.gallery-grid figure {
-  position:relative;
+.gallery-grid figure,
+.gallery-grid > .gallery-photo {
   margin:0;
+  min-width:0;
   border-radius:14px;
   overflow:hidden;
   background:#111119;
   box-shadow:0 4px 14px rgba(0,0,0,0.85);
 }
-.gallery-grid img {
+.gallery-photo {
   display:block;
+  position:relative;
+  aspect-ratio:3 / 2;
+  background:#111119;
+  cursor:zoom-in;
+}
+.gallery-photo img {
+  position:absolute;
+  inset:0;
   width:100%;
-  height:220px;
-  object-fit:cover;
+  height:100%;
+  object-fit:contain;
+}
+.gallery-photo:focus-visible {
+  outline:2px solid #ffcf5f;
+  outline-offset:-3px;
+  z-index:1;
 }
 .gallery-grid figcaption {
-  position:absolute;
-  left:0;
-  right:0;
-  bottom:0;
   padding:8px 10px 10px;
   font-size:13px;
   line-height:1.4;
-  background:rgba(0,0,0,0.7);
-  color:#ffffff;
-  text-shadow:0 1px 2px rgba(0,0,0,0.9);
+  color:#f2f2f2;
+}
+@media (max-width:520px){
+  .gallery-grid {
+    grid-template-columns:minmax(0,1fr);
+  }
 }
 @media (min-width:780px){
   .gallery-grid {
     grid-template-columns:repeat(3,minmax(0,1fr));
   }
+}
+
+html:has(.photo-viewer[open]) {
+  overflow:hidden;
+}
+.photo-viewer:not([open]) {
+  display:none;
+}
+.photo-viewer {
+  width:min(calc(100% - 24px),1200px);
+  max-width:none;
+  max-height:calc(100vh - 24px);
+  max-height:calc(100dvh - 24px);
+  margin:auto;
+  padding:10px 14px 14px;
+  border:1px solid #383441;
+  border-radius:14px;
+  background:#101018;
+  color:#f2f2f2;
+  overscroll-behavior:contain;
+}
+.photo-viewer::backdrop {
+  background:rgba(5,5,9,0.91);
+}
+.photo-viewer form {
+  display:flex;
+  justify-content:flex-end;
+  margin:0 0 8px;
+}
+.photo-viewer button {
+  width:44px;
+  height:44px;
+  padding:0;
+  border:1px solid #ffcf5f;
+  border-radius:50%;
+  background:#181824;
+  color:#ffcf5f;
+  font-size:28px;
+  line-height:1;
+  cursor:pointer;
+}
+.photo-viewer button:focus-visible {
+  outline:2px solid #ffcf5f;
+  outline-offset:2px;
+}
+.photo-viewer figure {
+  margin:0;
+}
+.photo-viewer img {
+  display:block;
+  width:auto;
+  height:auto;
+  max-width:100%;
+  max-height:calc(100vh - 144px);
+  max-height:calc(100dvh - 144px);
+  margin:0 auto;
+  object-fit:contain;
+}
+.photo-viewer figcaption {
+  margin:10px 0 0;
+  text-align:center;
+  font-size:14px;
+  line-height:1.4;
 }
 
 .call-btn {
@@ -401,66 +463,97 @@ footer {
 <section class="card reveal">
   <h2>Ein Blick auf unseren Wauernhof</h2>
   <p>Ein paar Eindrücke vom Alltag auf unserem Wauernhof – mit Hunden, Alpakas und Hofleben.</p>
+  <p>Tippe auf ein Foto, um es groß anzusehen.</p>
 
   <div class="gallery-grid">
     <figure>
-      <img src="images/hooch-im-gras.jpg" alt="Hooch liegt im Gras und schaut in die Kamera" width="1149" height="1662" loading="lazy" decoding="async">
+      <a class="gallery-photo" href="images/hooch-im-gras.jpg">
+        <img src="images/hooch-im-gras.jpg" alt="Hooch liegt im Gras und schaut in die Kamera" width="1149" height="1662" loading="lazy" decoding="async">
+      </a>
       <figcaption>Hooch, unser kleiner Frechdachs.</figcaption>
     </figure>
     <figure>
-      <img src="images/hunde-im-hundebett.jpg" alt="Zwei Hunde teilen sich ein Hundebett" width="1152" height="1536" loading="lazy" decoding="async">
+      <a class="gallery-photo" href="images/hunde-im-hundebett.jpg">
+        <img src="images/hunde-im-hundebett.jpg" alt="Zwei Hunde teilen sich ein Hundebett" width="1152" height="1536" loading="lazy" decoding="async">
+      </a>
       <figcaption>Zusammen ist es am gemütlichsten.</figcaption>
     </figure>
     <figure>
-      <img src="images/hunde-mit-hofblick.jpg" alt="Zwei Hunde blicken über die Wiesen" width="1152" height="1536" loading="lazy" decoding="async" style="object-position:center 65%;">
+      <a class="gallery-photo" href="images/hunde-mit-hofblick.jpg">
+        <img src="images/hunde-mit-hofblick.jpg" alt="Zwei Hunde blicken über die Wiesen" width="1152" height="1536" loading="lazy" decoding="async">
+      </a>
       <figcaption>Gemeinsam den Blick über die Wiesen genießen.</figcaption>
     </figure>
     <figure>
-      <img src="images/taps_huhn_napf.jpg" alt="Schwarzer Hund Taps neben einem Huhn am Wassernapf">
+      <a class="gallery-photo" href="images/taps_huhn_napf.jpg">
+        <img src="images/taps_huhn_napf.jpg" alt="Schwarzer Hund Taps neben einem Huhn am Wassernapf" loading="lazy" decoding="async">
+      </a>
       <figcaption>Erinnerung an Taps am Wassernapf mit unserem Huhn.</figcaption>
     </figure>
-<figure>
-    <img src="images/verspielt_hund.jpg" alt="Verspielter Hund im Stall">
-    <figcaption>Wir sind verspielt und lieben Gesellschaft!</figcaption>
-</figure>
     <figure>
-      <img src="images/dicke_alpakas_wiese.jpg" alt="Cane Corso Hündin Dicke steht vor einer Alpaka-Herde auf der Wiese">
+      <a class="gallery-photo" href="images/verspielt_hund.jpg">
+        <img src="images/verspielt_hund.jpg" alt="Verspielter Hund im Stall" loading="lazy" decoding="async">
+      </a>
+      <figcaption>Wir sind verspielt und lieben Gesellschaft!</figcaption>
+    </figure>
+    <figure>
+      <a class="gallery-photo" href="images/dicke_alpakas_wiese.jpg">
+        <img src="images/dicke_alpakas_wiese.jpg" alt="Cane Corso Hündin Dicke steht vor einer Alpaka-Herde auf der Wiese" loading="lazy" decoding="async">
+      </a>
       <figcaption>Dicke und die Alpakas – Hofalltag im Team.</figcaption>
     </figure>
     <figure>
-      <img src="images/taps_teich.jpg" alt="Hund Taps schwimmt im Naturteich auf dem Hof">
+      <a class="gallery-photo" href="images/taps_teich.jpg">
+        <img src="images/taps_teich.jpg" alt="Hund Taps schwimmt im Naturteich auf dem Hof" loading="lazy" decoding="async">
+      </a>
       <figcaption>Abkühlung im Teich – perfekt für Wasserratten.</figcaption>
     </figure>
-<figure class="gallery-item">
-<img src="images/kleiner_hund.jpg" alt="Ob groß oder klein – bei uns ist jeder Hund willkommen">
-    <figcaption>Ob groß oder klein – bei uns ist jeder Hund willkommen</figcaption>
-</figure>
     <figure>
-      <img src="images/taps_portrait_garten.jpg" alt="Taps sitzt lachend auf der Wiese vor dem Haus">
+      <a class="gallery-photo" href="images/kleiner_hund.jpg">
+        <img src="images/kleiner_hund.jpg" alt="Ob groß oder klein – bei uns ist jeder Hund willkommen" loading="lazy" decoding="async">
+      </a>
+      <figcaption>Ob groß oder klein – bei uns ist jeder Hund willkommen</figcaption>
+    </figure>
+    <figure>
+      <a class="gallery-photo" href="images/taps_portrait_garten.jpg">
+        <img src="images/taps_portrait_garten.jpg" alt="Taps sitzt lachend auf der Wiese vor dem Haus" loading="lazy" decoding="async">
+      </a>
       <figcaption>Taps, unser Lehrer, mit Blick über den Hof.</figcaption>
     </figure>
     <figure>
-      <img src="images/dicke_gaehn.jpg" alt="Cane Corso Hündin Dicke gähnt entspannt vor dem Haus">
+      <a class="gallery-photo" href="images/dicke_gaehn.jpg">
+        <img src="images/dicke_gaehn.jpg" alt="Cane Corso Hündin Dicke gähnt entspannt vor dem Haus" loading="lazy" decoding="async">
+      </a>
       <figcaption>Dicke zeigt, wie entspannt Hundepension sein kann.</figcaption>
     </figure>
     <figure>
-      <img src="images/hunde_wald.jpg" alt="Zwei Hunde sitzen auf einem Waldweg">
+      <a class="gallery-photo" href="images/hunde_wald.jpg">
+        <img src="images/hunde_wald.jpg" alt="Zwei Hunde sitzen auf einem Waldweg" loading="lazy" decoding="async">
+      </a>
       <figcaption>Waldrunden im Wald gehören fest zum Programm.</figcaption>
     </figure>
     <figure>
-      <img src="images/hunde_alpakas_stall.jpg" alt="Hunde und Alpakas gemeinsam im Auslauf am Hof">
+      <a class="gallery-photo" href="images/hunde_alpakas_stall.jpg">
+        <img src="images/hunde_alpakas_stall.jpg" alt="Hunde und Alpakas gemeinsam im Auslauf am Hof" loading="lazy" decoding="async">
+      </a>
       <figcaption>Hunde und Alpakas teilen sich hier ganz selbstverständlich den Hof.</figcaption>
     </figure>
     <figure>
-      <img src="images/dicke_portrait_wald.jpg" alt="Dicke liegt mit weit herausgestreckter Zunge im Gras">
+      <a class="gallery-photo" href="images/dicke_portrait_wald.jpg">
+        <img src="images/dicke_portrait_wald.jpg" alt="Dicke liegt mit weit herausgestreckter Zunge im Gras" loading="lazy" decoding="async">
+      </a>
       <figcaption>Dicke nach getaner Arbeit – Wächterin im Pausenmodus.</figcaption>
     </figure>
     <figure>
-      <img src="images/labbi_stroh.jpg" alt="Brauner Labrador im Stroh bei der Stallarbeit">
+      <a class="gallery-photo" href="images/labbi_stroh.jpg">
+        <img src="images/labbi_stroh.jpg" alt="Brauner Labrador im Stroh bei der Stallarbeit" loading="lazy" decoding="async">
+      </a>
       <figcaption>Mitten im Geschehen – Stallluft für neugierige Nasen.</figcaption>
     </figure>
     <figure>
-      <img src="images/labbi_wiese_allgaeu.jpg" alt="Brauner Labrador steht in einer Allgäuer Wiese">
+      <a class="gallery-photo" href="images/labbi_wiese_allgaeu.jpg">
+        <img src="images/labbi_wiese_allgaeu.jpg" alt="Brauner Labrador steht in einer Allgäuer Wiese" loading="lazy" decoding="async">
+      </a>
       <figcaption>Unser Wauernhof – das Zuhause für Hunde, Alpakas und Menschen.</figcaption>
     </figure>
   </div>
@@ -487,19 +580,37 @@ footer {
 <h2>Einblicke in unseren Alltag</h2>
 <div class="card">
   <p><strong>Keine klassische Zwingerhaltung:</strong><br> Eure Hunde leben bei uns im Haus und auf dem Hof mit engem Familienanschluss. Die Bilder zeigen unser Leben mit den Hunden auf dem Wauernhof.</p>
-  <div class="gallery">
-      <img src="images/embedded_2.jpg" alt="Hundebild" class="reveal">
-      <img src="images/embedded_3.jpg" alt="Hundebild" class="reveal">
-      <img src="images/embedded_4.jpg" alt="Hundebild" class="reveal">
-      <img src="images/embedded_5.jpg" alt="Hundebild" class="reveal">
-      <img src="images/embedded_6.jpg" alt="Hundebild" class="reveal">
-      <img src="images/embedded_7.jpg" alt="Hundebild" class="reveal">
-      <img src="images/embedded_8.jpg" alt="Hundebild" class="reveal">
-      <img src="images/embedded_9.jpg" alt="Hundebild" class="reveal">
-      <img src="images/embedded_10.jpg" alt="Hundebild" class="reveal">
-<div class="gallery">
-    <img src="images/dicke_taps.jpg" alt="Unsere Hunde und Alpakas – ein starkes Team">
-</div>
+  <div class="gallery-grid reveal">
+    <a class="gallery-photo" href="images/embedded_2.jpg">
+      <img src="images/embedded_2.jpg" alt="Hundebild" loading="lazy" decoding="async">
+    </a>
+    <a class="gallery-photo" href="images/embedded_3.jpg">
+      <img src="images/embedded_3.jpg" alt="Hundebild" loading="lazy" decoding="async">
+    </a>
+    <a class="gallery-photo" href="images/embedded_4.jpg">
+      <img src="images/embedded_4.jpg" alt="Hundebild" loading="lazy" decoding="async">
+    </a>
+    <a class="gallery-photo" href="images/embedded_5.jpg">
+      <img src="images/embedded_5.jpg" alt="Hundebild" loading="lazy" decoding="async">
+    </a>
+    <a class="gallery-photo" href="images/embedded_6.jpg">
+      <img src="images/embedded_6.jpg" alt="Hundebild" loading="lazy" decoding="async">
+    </a>
+    <a class="gallery-photo" href="images/embedded_7.jpg">
+      <img src="images/embedded_7.jpg" alt="Hundebild" loading="lazy" decoding="async">
+    </a>
+    <a class="gallery-photo" href="images/embedded_8.jpg">
+      <img src="images/embedded_8.jpg" alt="Hundebild" loading="lazy" decoding="async">
+    </a>
+    <a class="gallery-photo" href="images/embedded_9.jpg">
+      <img src="images/embedded_9.jpg" alt="Hundebild" loading="lazy" decoding="async">
+    </a>
+    <a class="gallery-photo" href="images/embedded_10.jpg">
+      <img src="images/embedded_10.jpg" alt="Hundebild" loading="lazy" decoding="async">
+    </a>
+    <a class="gallery-photo" href="images/dicke_taps.jpg">
+      <img src="images/dicke_taps.jpg" alt="Unsere Hunde und Alpakas – ein starkes Team" loading="lazy" decoding="async">
+    </a>
   </div>
 </div>
 
@@ -529,6 +640,15 @@ footer {
   <p>☎ </p>
 </div>
 </footer>
+<dialog id="photo-viewer" class="photo-viewer" aria-label="Große Fotoansicht">
+  <form method="dialog">
+    <button type="submit" autofocus aria-label="Fotoansicht schließen">×</button>
+  </form>
+  <figure>
+    <img alt="">
+    <figcaption hidden></figcaption>
+  </figure>
+</dialog>
 <script>
   document.querySelectorAll('#year').forEach(e => e.textContent = new Date().getFullYear());
 const revealEls = document.querySelectorAll('.reveal');
@@ -545,6 +665,38 @@ const revealEls = document.querySelectorAll('.reveal');
   } else {
     revealEls.forEach(el => el.classList.add('reveal-visible'));
   }
+
+  (() => {
+    const viewer = document.getElementById('photo-viewer');
+    if (typeof viewer.showModal !== 'function') return;
+
+    const image = viewer.querySelector('img');
+    const caption = viewer.querySelector('figcaption');
+    let activeLink = null;
+
+    document.querySelectorAll('.gallery-photo').forEach(link => {
+      link.addEventListener('click', event => {
+        if (event.button !== 0 || event.ctrlKey || event.metaKey || event.shiftKey || event.altKey) return;
+
+        image.src = link.href;
+        image.alt = link.querySelector('img').alt;
+        caption.textContent = link.closest('figure')?.querySelector('figcaption')?.textContent.trim() || '';
+        caption.hidden = !caption.textContent;
+        activeLink = link;
+        viewer.showModal();
+        event.preventDefault();
+      });
+    });
+
+    viewer.addEventListener('click', event => {
+      if (event.target === viewer) viewer.close();
+    });
+    viewer.addEventListener('close', () => {
+      if (viewer.open) return;
+      image.removeAttribute('src');
+      activeLink?.focus({ preventScroll: true });
+    });
+  })();
 </script>
 </body>
 </html>
