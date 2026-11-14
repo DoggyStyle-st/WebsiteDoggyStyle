@@ -300,6 +300,27 @@ footer {
 @media (max-width:780px){
   .header-inner{padding-bottom:12px;}
 }
+ 
+.price-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: clamp(.875rem, 2.5vw, 1rem);
+}
+.price-table caption {
+  text-align: left;
+  margin-bottom: .75rem;
+  font-weight: 600;
+}
+.price-table th,
+.price-table td {
+  padding: .65rem .35rem;
+  border-bottom: 1px solid #383441;
+  text-align: left;
+}
+.price-table td {
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums;
+}
 </style>
 <link rel="stylesheet" href="gib-pfote.css">
 <script src="gib-pfote.js" defer></script>
@@ -335,17 +356,41 @@ footer {
 
 <h1>Preise</h1>
 <div class="card">
-  <p>Die Grundpreise:</p>
-  <ul>
-    <li><strong>Urlaubsbetreuung / Übernachtung:</strong> ab <strong>35 € pro Tag</strong></li>
-    <li><strong>Tagesbetreuung:</strong> ab <strong>30 € pro Tag</strong></li>
-  </ul>
-  <p>Der konkrete Preis hängt von Hund, Dauer und Betreuungsumfang ab.</p>
+  <table class="price-table">
+    <caption>Grundpreise pro Hund und Betreuungstag</caption>
+    <thead>
+      <tr><th scope="col">Dauer</th><th scope="col">Tages&shy;betreuung</th><th scope="col">Urlaubs&shy;betreuung mit Übernachtung</th></tr>
+    </thead>
+    <tbody>
+      <tr><th scope="row">1–6 Tage</th><td>40,00 &euro;</td><td>45,00 &euro;</td></tr>
+      <tr><th scope="row">7–13 Tage</th><td>37,50 &euro;</td><td>42,50 &euro;</td></tr>
+      <tr><th scope="row">14–29 Tage</th><td>35,00 &euro;</td><td>40,00 &euro;</td></tr>
+      <tr><th scope="row">Ab 30 Tagen</th><td>30,00 &euro;</td><td>35,00 &euro;</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<h2>Zusatzleistungen und Zuschläge</h2>
+<div class="card">
+  <p>Bewegung und Auslauf gehören zur Betreuung. Einen zusätzlichen 30-Minuten-Spaziergang kannst du separat dazubuchen.</p>
+  <table class="price-table" aria-label="Zusatzleistungen und Zuschläge">
+    <thead>
+      <tr><th scope="col">Leistung</th><th scope="col">Preis</th></tr>
+    </thead>
+    <tbody>
+      <tr><th scope="row">Zusätzlicher Spaziergang (30 Minuten)</th><td>15,00 €</td></tr>
+      <tr><th scope="row">Medikamentengabe pro Tag</th><td>2,00 €</td></tr>
+      <tr><th scope="row">Verband pro Stück</th><td>2,50 €</td></tr>
+      <tr><th scope="row">Fell- oder Krallenpflege je Leistung</th><td>5,00 €</td></tr>
+      <tr><th scope="row">Bring- oder Abholzeit außerhalb der üblichen Zeiten</th><td>+10 %</td></tr>
+      <tr><th scope="row">Betreuung an Sonn- und Feiertagen</th><td>+10 %</td></tr>
+    </tbody>
+  </table>
 </div>
 
 <div class="card">
   <h3>Mehrhunde &amp; Besonderheiten</h3>
-  <p>Mehrere Hunde aus einem Haushalt oder besondere Themen (Medikamente, Extra-Sicherung usw.) besprechen wir individuell und fair.</p>
+  <p>Mehrere Hunde aus einem Haushalt oder besonderen Betreuungsaufwand besprechen wir individuell und fair.</p>
 </div>
 
 <h2>Ruhe & Entspannung</h2>
